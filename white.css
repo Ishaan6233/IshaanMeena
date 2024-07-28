@@ -13,7 +13,8 @@
 	--previewShadow:#f0ead6;
 
 
-	--buttonColor:black;
+	 --buttonColor: black;
+    	--buttonHoverColor: #333333;
 
 
 }
