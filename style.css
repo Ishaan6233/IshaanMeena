@@ -1,21 +1,14 @@
-:root{
-	--mainColor:#15202B;
-	--secondaryColor:#192734;
-
-	--borderColor:#164D56;
-
-	--mainText:#fff;
-	--secondaryText:#eeeeee;
-
-	--themeDotBorder:#FFF;
-
-	--previewBg:rgb(25, 39, 52, 0.8);
-	--previewShadow:#111921;
-
-
-	--buttonColor:#17a2b8;
-
-
+:root {
+    --mainColor: #15202B;
+    --secondaryColor: #192734;
+    --borderColor: #164D56;
+    --mainText: #fff;
+    --secondaryText: #eeeeee;
+    --themeDotBorder: #FFF;
+    --previewBg: rgba(25, 39, 52, 0.8);
+    --previewShadow: #111921;
+    --buttonColor: #17a2b8;
+    --buttonHoverColor: #04AA6D;
 }
 
 .post {
@@ -644,5 +637,25 @@ nav {
     .job {
         flex: 1 1 calc(33.333% - 40px); /* 3 jobs per row */
     }
+}
+
+.download-button {
+    background-color: var(--buttonColor); 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.download-button:hover {
+    background-color: var(--buttonHoverColor); 
+    color: white;
 }
 
