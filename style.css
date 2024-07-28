@@ -639,6 +639,12 @@ nav {
     }
 }
 
+.button-container {
+    text-align: left;
+    margin-top: 20px;
+    position: relative;
+}
+
 .download-button {
     background-color: var(--buttonColor); 
     border: none;
@@ -652,6 +658,9 @@ nav {
     cursor: pointer;
     border-radius: 12px;
     transition: background-color 0.4s ease, color 0.4s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .download-button:hover {
