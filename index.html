@@ -2,32 +2,25 @@
 <html>
 <head>
     <title>Ishaan Meena</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">       
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="style.css">
     <link id="theme-style" rel="stylesheet" type="text/css" href="">
-
     <link rel="shortcut icon" type="image/x-icon" href="files/favicon.png">
-
 </head>
 <body>
 
+    <!-- Intro Section -->
     <section class="s1">
         <div class="main-container" id="front-page">
-
             <div class="greeting-wrapper">
                 <h1> Hi, I'm Ishaan Meena </h1>
             </div>
-
             <div class="intro-wrapper">
                 <div class="nav-wrapper">
-
                     <a href="index.html">
                         <div class="dots-wrapper">
                             <div id="dot-1" class="browser-dot"></div>
@@ -35,30 +28,24 @@
                             <div id="dot-3" class="browser-dot"></div>
                         </div>
                     </a>
-
                     <ul id="navigation">
                         <li><a href="index.html#portfolio">portfolio</a></li>
                         <a style="color: var(--secondaryText); font-family: 'Raleway', sans-serif;" href="index.html#contact">contact</a>
                     </ul>
                 </div>
-
                 <div class="left-column" style="margin-right:90px;">
                     <img id="profile_pic" src="files/ishaan.jpeg">
                     <a href="index.html#work"><h5 style="text-align: center; line-height: 0; text-decoration: underline; color:lightblue">click to view work experience</h5></a>
                     <h6 style="text-align: center; line-height: 0;">personalize theme ⤹</h6>
-
                     <div id="theme-options-wrapper">
                         <div data-mode="light" id="blue-mode" class="theme-dot"></div>
                         <div data-mode="blue" id="purple-mode" class="theme-dot"></div>
                         <div data-mode="green" id="green-mode" class="theme-dot"></div>
                         <div data-mode="purple" id="light-mode" class="theme-dot"></div>
                     </div>
-
                     <p id="settings-note">*theme settings will be saved for<br>your next visit</p>
                 </div>
-
                 <div class="right-column">
-
                     <div id="preview-shadow">
                         <div id="preview">
                             <div id="corner-tl" class="corner"></div>
@@ -67,10 +54,8 @@
                             <div class="scroll-container">
                                 <div class="scroll-text">
                                     <h5> A third-year undergraduate computer science student - University of Alberta</h5>
-                                    <!-- Repeat content removed for brevity -->
                                 </div>
                             </div>
-
                             <div id="corner-br" class="corner"></div>
                             <div id="corner-bl" class="corner"></div>
                         </div>
@@ -80,255 +65,129 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section class="s1" id="second">
         <div class="main-container">
             <h1 style="text-align: center; margin-top:60px;" id="portfolio"> My portfolio of CS projects ↴</h1>
 
-            <h2 style="text-align: center;">Machine Learning and Artificial Intelligence</h2>
-            <h4 style="text-align: center;">PyTorch, TensorFlow, Keras, Scikit, Numpy</h4>
+            <!-- Machine Learning and Artificial Intelligence -->
+            <h2 style="text-align: center;">Machine Learning and Neural Networks</h2>
+            <h4 style="text-align: center;">PyTorch, TensorFlow, Scikit-Learn, Numpy</h4>
             <div class="post-wrapper">
-                
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="bee1.jpg.crdownload">
-                        <div class="post-preview">
-                            <h6 class="post-title">Bees: Predict Species from Images</h6>
-                            <p class="post-intro"> XXX </p>
-                            https://github.com/Ishaan6233/Bee-Identification-Using-ML
-                            <a href="#">View Repository.</a>
-                        </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/emotion.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Emotion Detection Neural Network</h6>
+                        <p class="post-intro">Developed a neural network model to detect emotions from textual data.</p>
+                        <a href="#">View Repository</a>
                     </div>
                 </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="heart.avif">
-                        <div class="post-preview">
-                            <h6 class="post-title">Heart Disease Detection</h6>
-                            <p class="post-intro">XXX</p>
-                            https://github.com/Ishaan6233/Heart-Disease-Detection-ML
-                            <a href="#">View Repository.</a>
-                        </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/heart.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Heart Disease Detection</h6>
+                        <p class="post-intro">Machine learning project for predicting heart disease using medical data.</p>
+                        <a href="#">View Repository</a>
                     </div>
                 </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/bee3.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">Bees: Deep Learning with Images</h6>
-                            <p class="post-intro">XXX</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/phishing.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Phishing Detection</h6>
+                        <p class="post-intro">Identified phishing emails using machine learning and NLP techniques.</p>
+                        <a href="#">View Repository</a>
                     </div>
                 </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/sloth.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">Sloth vs Pastry: Image Classification with PyTorch</h6>
-                            <p class="post-intro">XXX</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/style.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">Neural Style Transfer with TensorFlow</h6>
-                            <p class="post-intro">XXX</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/clothing.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">E-commerce Clothing Classifier with Keras</h6>
-                            <p class="post-intro">Imagine transforming the fashion and retail industry with advanced AI: my project focuses on developing a smart garment classification system. Using machine learning and image classification, I aim to enhance the online shopping experience by making it easier for consumers to find the perfect outfit.</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/bee.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Bee Identification</h6>
+                        <p class="post-intro">ML project to identify bee species using image classification.</p>
+                        <a href="#">View Repository</a>
                     </div>
                 </div>
             </div>
 
-            <h2 style="text-align: center;">Web Development </h2>
-            <h4 style="text-align: center;">HTML, CSS, JavaScript, React, Node.js, Express.js, MongoDB</h4>
-
+            <!-- Natural Language Processing (NLP) -->
+            <h2 style="text-align: center;">Natural Language Processing and Text Processing</h2>
+            <h4 style="text-align: center;">Python, NLTK, Regular Expressions</h4>
             <div class="post-wrapper">
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/dalle.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">AI Image Generator App</h6>
-                            <p class="post-intro">XXX</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
-                    </div>
-                </div>    
-            </div>
-
-            <h2 style="text-align: center;">Database Management + Miscellaneous work </h2>
-            <h4 style="text-align: center;">MySQL, Python</h4>
-            <div class="post-wrapper">
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="files/bank.png">
-                        <div class="post-preview">
-                            <h6 class="post-title">Bank Management System</h6>
-                            <p class="post-intro">Made using MySQL & Python Connectivity. It has registrations for users & employees, loan transactions, deposits, captcha verifications to access admin side, etc.</p>
-                            <!-- Placeholder for repository link -->
-                            <a href="#">View Repository.</a>
-                        </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/assignment1.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Data Cleaning and Transformation</h6>
+                        <p class="post-intro">Cleaned CHILDES dataset using regex, transforming text to ARPAbet format.</p>
+                        <a href="#">View Repository</a>
                     </div>
                 </div>
-                <div>
+                <div class="post">
+                    <img class="thumbnail" src="files/assignment2.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Grammar Checker</h6>
+                        <p class="post-intro">Created a grammar checker with CFG parsing for error detection.</p>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analysis and Visualization -->
+            <h2 style="text-align: center;">Data Analysis and Visualization</h2>
+            <h4 style="text-align: center;">Python, Pandas, Matplotlib</h4>
+            <div class="post-wrapper">
+                <div class="post">
+                    <img class="thumbnail" src="files/nike.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Nike Data Analysis</h6>
+                        <p class="post-intro">Analyzed Nike’s sales and customer demographics data for insights.</p>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications and Utilities -->
+            <h2 style="text-align: center;">Applications and Utilities</h2>
+            <h4 style="text-align: center;">Python, GUI, Web Scraping</h4>
+            <div class="post-wrapper">
+                <div class="post">
+                    <img class="thumbnail" src="files/calculator.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Enhanced GUI Calculator</h6>
+                        <p class="post-intro">Built a GUI calculator with extended functions for scientific calculations.</p>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/test_editor.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Test Editor</h6>
+                        <p class="post-intro">A Python-based text editing application with essential editing features.</p>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games and Simulations -->
+            <h2 style="text-align: center;">Games and Simulations</h2>
+            <h4 style="text-align: center;">Python</h4>
+            <div class="post-wrapper">
+                <div class="post">
+                    <img class="thumbnail" src="files/sudoku.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Sudoku Solver</h6>
+                        <p class="post-intro">Python program that solves Sudoku puzzles using backtracking algorithms.</p>
+                        <a href="#">View Repository</a>
+                    </div>
+                </div>
+                <div class="post">
+                    <img class="thumbnail" src="files/hangman.png">
+                    <div class="post-preview">
+                        <h6 class="post-title">Hangman Game</h6>
+                        <p class="post-intro">A simple Hangman game built in Python to demonstrate game logic.</p>
+                        <a href="#">View Repository</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="s2" id="work">
-        <h2 style="text-align: center; font-size:46px;"> My Work Experience </h2>
-        <div class="job-container">
-            <div class="work-experience">
-                
-                <div class="job job1">
-                    <h3>Company Name</h3>
-                    <p style="font-weight: bold;">Job Title</p>
-                    <p>Start Date - End Date</p>
-                    <p>Location</p>
-                    <ul>
-                        <li>Job responsibility 1</li>
-                        <li>Job responsibility 2</li>
-                    </ul>
-                </div>
-
-                <div class="job job2">
-                    <h3>Company Name</h3>
-                    <p style="font-weight: bold;">Job Title</p>
-                    <p>Start Date - End Date</p>
-                    <p>Location</p>
-                    <ul>
-                        <li>Job responsibility 1</li>
-                        <li>Job responsibility 2</li>
-                    </ul>
-                </div>
-
-                <div class="job job3">
-                    <h3>Company Name</h3>
-                    <p style="font-weight: bold;">Job Title</p>
-                    <p>Start Date - End Date</p>
-                    <p>Location</p>
-                    <ul>
-                        <li>Job responsibility 1</li>
-                        <li>Job responsibility 2</li>
-                    </ul>
-                </div>
-
-                <div class="job job4">
-                    <h3>Company Name</h3>
-                    <p style="font-weight: bold;">Job Title</p>
-                    <p>Start Date - End Date</p>
-                    <p>Location</p>
-                    <ul>
-                        <li>Job responsibility 1</li>
-                        <li>Job responsibility 2</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="s1">
-        <div class="main-container">
-
-            <div class="about-wrapper">
-                <div class="about-me">
-                    <h4>more about me</h4>
-
-                    <p>Something...</p>
-
-
-                    <h4>expertise</h4>
-
-                    <div id="skills">
-                        <ul>
-                            <li>PyTorch</li>
-                            <li>Python</li>
-                            <li>MySQL</li>
-                            <li>Keras</li>
-                            <li>MongoDB</li>
-                            <li>Firebase</li>
-                            <li>AWS</li>
-                        </ul>
-
-                        <ul>
-                            <li>React</li>
-                            <li>JavaScript</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>Node.js</li>
-                            <li>Express.js</li>
-                            <li>HUGO</li>
-                        </ul>
-                    </div>
-                        <div style="text-align: center; margin-top: 20px;">
-                        <a href="files/Ishaan_Meena_Resume.pdf" download="Ishaan_Meena_Resume.pdf">
-                            <button class="download-button">Download Resume</button>
-                        </a>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <img id="social_img1" src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
-                    <img id="social_img2" width="50" height="50" src="https://img.icons8.com/ios-filled/50/github.png" alt="github"/>
-                    <h3>find me on linkedin</h3>
-                    <a target="_blank" href="https://www.linkedin.com/in/ishaan-meena/" style="color: rgb(143, 143, 255); font-family: 'Raleway', sans-serif; text-decoration: underline;">click me to view linkedin profile</a>
-                    <br>
-                    <h3>or have a look at my github profile </h3>
-                    <a target="_blank" href="https://github.com/ishaan6233" style="color: rgb(143, 143, 255); font-family: 'Raleway', sans-serif; text-decoration: underline;">click me to view github profile</a>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </section> 
-
-    <section class="s2">
-        <div class="main-container">
-            <a href=""></a>
-            <h3 style="text-align: center;">get in touch with me via email!</h3>
-
-            <form id="contact-form" action="https://formsubmit.co/ishhaan.m@gmail.com" method="POST">
-                <a name="contact"></a>
-
-                <label>Name</label>
-                <input class="input-field" type="text" name="name" placeholder="Enter your name here" required>
-
-                <label>Email</label>
-                <input class="input-field" type="text" name="email" placeholder="Email Address" required>
-                <input type="hidden" name="_subject" value="New email">
-                <input type="hidden" name="_url" value="https://ishaan6233.github.io/">
-
-                <label>Message</label>
-                <textarea class="input-field" name="message" placeholder="Write your message here" required></textarea>
-
-                <input id="submit-btn" type="submit" value="Send">
-            </form>
-
-            <a class="icon" target="_blank" href="https://icons8.com/icon/53871/internet">Internet</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </div>
-    </section>
-
-    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
