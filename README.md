@@ -1,58 +1,78 @@
-# Ishaan Meena - Crafting Digital Solutions 🚀
+# Hi, I'm Ishaan Meena 👋
 
-**Computer Science BSc Student | Developer | Innovator**
+## Professional Summary
+I am an undergraduate Computer Science student at the University of Alberta, passionate about machine learning, artificial intelligence, and software development. I have experience in developing full-stack applications, mobile apps, and working with robotics. I am proficient in Python, C/C++, Java, JavaScript, and various web and mobile development frameworks. My work spans across multiple domains, from backend development and data engineering to AI-driven solutions and real-time applications. I am eager to contribute to innovative projects and collaborate with cross-functional teams.
 
-Hey there! I'm Ishaan Meena, a computer science enthusiast on a mission to create innovative digital solutions. Join me on my journey as I transform ideas into impactful projects that blend technology with creativity.
+## 🌱 Skills & Expertise
+- **Programming Languages:** Python, C, C++, Java, JavaScript
+- **Web Development:** React.js, Node.js, Express.js, Flask
+- **Mobile App Development:** Kivy, Android Development
+- **AI/ML:** TensorFlow, Scikit-learn, Data Structures & Algorithms
+- **Tools:** Git, Docker, MongoDB, BeautifulSoup, Scrapy, Google Maps AP
 
-## 🚀 Skills and Technologies ##
+## 🛠 Projects
 
-<img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" />
-<img align="left" alt="C" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
-<img align="left" alt="Java" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
-<img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
-<img align="left" alt="Numpy" width="30px" style="padding-right:10px;" src="https://learnopencv.com/wp-content/uploads/2021/05/NumPy_logo_2020-768x346.png" />
-<img align="left" alt="Pandas" width="30px" style="padding-right:10px;" src="https://www.ecured.cu/images/a/a8/Pandas_python.png" />
-<img align="left" alt="R Commander" width="40px" style="padding-right:10px;" src="https://i1.wp.com/vivaelsoftwarelibre.com/wp-content/uploads/2016/11/R-Commander.png?fit=817%2C312&ssl=1" />
-<img align="left" alt="HTML" width="40px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
-<img align="left" alt="SQL" width="40px" style="padding-right:10px;" src="https://img1.pnghut.com/11/19/23/Qwx0p7hsBv/oracle-database-purple-microsoft-sql-server-c-query-language.jpg" />
-<img align="left" alt="Matplotlib" width="50px" style="padding-right:10px;" src="https://seeklogo.com/images/M/matplotlib-logo-AEB3DC9BB4-seeklogo.com.png" />
-<img align="left" alt="MongoDB" width="40px" style="padding-right:10px;" src="https://www.liblogo.com/img-logo/mo429m311-mongodb-logo-mongodb-logo-.png"/>
-<img align="left" alt="Ruby" width="40px" style="padding-right:10px;" src="https://img.favpng.com/10/3/21/ruby-programming-language-logo-java-png-favpng-JUa7Fs1Jyu3Y493PUXpRmY5KB.jpg" />
-<img align="left" alt="Kivy" width="30px" style="padding-right:10px;" src="https://innovationyourself.com/wp-content/uploads/2021/01/kivy.png" />
+Some Projects:
+1. Emotion Detection Neural Network
+2. Heart Disease Detection
+3. Phishing Detection
+4. Bee Identification
+5. Natural Language Processing and Text Processing
+6. Text Summarization Tool
+7. Sentiment Analysis of Tweets
 
-##
+### Emotion Detection Neural Network
+- Description: This project utilizes Convolutional Neural Networks (CNNs) to detect and classify emotions from facial expressions in images, enabling automatic emotion recognition.
+- Technologies Used: PyTorch, TensorFlow, Scikit-Learn, Numpy
+- Key Achievements:
+  1. Achieved 90% accuracy in classifying 7 distinct emotions from facial images.
+  2. Deployed on a web interface for real-time emotion detection.
 
-##
+### Heart Disease Detection
+- Description: A machine learning project for predicting heart disease using medical data, focusing on classification techniques like logistic regression and decision trees.
+- Technologies Used: Scikit-Learn, Pandas, Matplotlib, Python
+- Key Achievements:
+  1. Developed an ML model achieving 87% accuracy in heart disease prediction.
+  2. Enabled data-driven healthcare decisions using a web interface for user input.
 
-### 🌐 Project Highlights ###
+### Phishing Detection
+- Description: This project involves identifying phishing emails using machine learning and natural language processing (NLP) techniques.
+- Technologies Used: Python, Scikit-learn, NLTK, Pandas
+- Key Achievements:
+  1. Developed a robust phishing detection model with 92% accuracy.
+  2. Deployed as a browser extension for real-time email filtering.
 
-#### Resource Locator for Food Banks and Shelters ####
-*University of Alberta – Edmonton, Alberta, Canada (May 2023)*
+### Bee Identification
+- Description: A machine learning project aimed at identifying bee species using image classification techniques.
+- Technologies Used: TensorFlow, Keras, OpenCV, Python
+- Key Achievements:
+  1. Trained a deep learning model to identify 20+ bee species.
+  2.Contributed to environmental studies and biodiversity tracking.
 
-- 🌍 Developed an advanced resource locator for seamless discovery of nearby food banks and shelters.
-- 🛠 Implemented a robust backend algorithm generating comprehensive facility lists with detailed resource information.
-- 🌐 Web-scraped real-time data for enhanced reliability.
-- 🗺 Presented essential details on an interactive map, empowering users to make informed decisions efficiently.
+### Resource Locator App
+-  Description: Developed a resource locator app for community resources using React.js and Node.js. Integrated Google Maps API for real-time location tracking and implemented web scraping with Python to gather up-to-date data.
+- Technologies Used: React.js, Node.js, Express.js, Google Maps API, Python (BeautifulSoup, Scrapy)
+- Key Achievements:
+  1. Increased efficiency by 30% in generating facility lists.
+  2. Improved data accuracy by 40% through real-time web scraping.
+  3. Empowered 10,000+ users with real-time resource access.
 
-#### Data Acquisition, Analysis, and Visualization Project ####
-*University of Alberta – Edmonton, Alberta, Canada (Oct 2022)*
+### Autonomous Robotic Vehicle (ARVP) - Claw Subsystem
+- Description: Contributed to the development of the Claw subsystem for an autonomous robotic vehicle. Developed a precise cart and track system for controlling the robotic gripper’s movement.
+- Technologies Used: C++, Servo Actuators, Robotics, Software Integration
+- Key Achievements:
+  1. Enhanced the accuracy of the robotic claw with a real-time tracking system.
+  2. Contributed to the overall functionality of an autonomous vehicle project.
 
-- 🐍 Utilized Python, Pandas, and NumPy for web scraping and data processing.
-- 📊 Translated gathered data into informative graphs, in-depth reports, and data-driven deductions.
-- 👟 Unleashed the power of data science to analyze the iconic Nike Air Jordan 1s.
+### Dice Rolling Game - Android
+- Description: Built a Dice Rolling Game for Android using Python and Kivy. Released on the Play Store with 144+ downloads.
+- Technologies Used: Python, Kivy, MongoDB
+- Key Achievements:
+  1. Released on Google Play Store, garnering over 144 downloads.
+  2. Developed a seamless user interface and engaging gaming experience.
 
-#### Dynamic Android Game IT Intern ####
-*Curtin University – Dubai, UAE (Jul 2021 to Sep 2021)*
+## 📬 Contact Me
+- **LinkedIn**: [linkedin.com/in/ishaanmeena](https://www.linkedin.com/in/ishaanmeena)
+- **Email**: ishhaan.m@gmail.com
 
-- 🎮 Crafted a captivating Android-based game using Kivy and Python.
-- 🧠 Engineered a dynamic dice-rolling gaming experience with interactive gameplay against Computer AI adversaries.
 
-#### Finequo: Pioneering Image-Driven Health Gamification ####
-*Gems-X Innovation Challenge 2019 – Dubai, UAE (Dec 2019 to May 2020)*
-
-- 🏆 Created Finequo, an authentication-enabled app using image recognition to promote healthy habits.
-- 🎮 Developed a level-based game encouraging users to complete health-focused challenges.
-
-### 👨‍💻 About My Coding Journey ###
-
-I embarked on my coding journey as a naive computer science student with a thirst for knowledge. From learning everything about the programming world to self-teaching iOS development, my journey evolved into a passion for excelling in Java. This desire led me to a fulfilling career in full-stack software engineering upon graduation.
