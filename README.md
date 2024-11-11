@@ -1,4 +1,4 @@
-# Hi, I'm Ishaan Meena 👋
+# Hi, I'm [Ishaan Meena](https://ishaan6233.github.io/IshaanMeena/) 👋
 
 ## Professional Summary
 I am an undergraduate Computer Science student at the University of Alberta, passionate about machine learning, artificial intelligence, and software development. I have experience in developing full-stack applications, mobile apps, and working with robotics. I am proficient in Python, C/C++, Java, JavaScript, and various web and mobile development frameworks. My work spans across multiple domains, from backend development and data engineering to AI-driven solutions and real-time applications. I am eager to contribute to innovative projects and collaborate with cross-functional teams.
