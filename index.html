@@ -2,268 +2,342 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ishaan Meena: Computer Science student at the University of Alberta working on machine learning, NLP and software development. Projects, skills and contact details.">
     <title>Ishaan Meena</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link id="theme-style" rel="stylesheet" type="text/css" href="white.css">
-    <link rel="shortcut icon" type="image/x-icon" href="files/nb.jpg">
+    <script>
+        // Set the theme and view (Mac / simple) before first paint to avoid a flash
+        (function () {
+            var saved = null;
+            try { saved = localStorage.getItem("theme"); } catch (e) {}
+            var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = saved || (prefersDark ? "dark" : "light");
+            var view = null;
+            try { view = localStorage.getItem("view"); } catch (e) {}
+            document.documentElement.dataset.view = view === "simple" ? "simple" : "mac";
+        })();
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="files/NB.jpg">
 </head>
 <body>
+    <a class="skip-link" href="#simple-view">Skip to simple view</a>
+
+    <main id="main">
+        <h1 class="sr-only">Ishaan Meena: Computer Science student and ML researcher, portfolio</h1>
     
-    <!-- Intro Section -->
-    <section class="s1">
+    <!-- Intro Section: a MacBook showing a macOS-style desktop -->
+    <section class="s1" id="hero">
+        <!-- Aurora + studio spotlight backdrop (CSS only, see style.css) -->
+        <div class="backdrop" aria-hidden="true">
+            <span class="aurora a1"></span>
+            <span class="aurora a2"></span>
+            <span class="aurora a3"></span>
+            <canvas class="flow-canvas"></canvas>
+            <span class="stage-light"></span>
+            <span class="sheen"></span>
+        </div>
         <div class="main-container" id="front-page">
-            <div class="greeting-wrapper">
-                <h1> Hi, I'm Ishaan Meena </h1>
-            </div>
-            <div class="intro-wrapper">
-                <div class="nav-wrapper">
-                    <a href="index.html">
-                        <div class="dots-wrapper">
-                            <div id="dot-1" class="browser-dot"></div>
-                            <div id="dot-2" class="browser-dot"></div>
-                            <div id="dot-3" class="browser-dot"></div>
+            <div class="laptop">
+                <div class="laptop-screen">
+                    <div class="laptop-notch" aria-hidden="true"></div>
+                    <div class="desktop" id="desktop">
+                        <!-- The same aurora as the page backdrop, aligned to the page so it continues through the screen (desktop.js) -->
+                        <div class="screen-aurora" aria-hidden="true">
+                            <span class="aurora a1"></span>
+                            <span class="aurora a2"></span>
+                            <span class="aurora a3"></span>
+                            <canvas class="flow-canvas"></canvas>
+                            <span class="sheen"></span>
                         </div>
-                    </a>
-                    <ul id="navigation">
-                        <li><a href="index.html#portfolio">portfolio</a></li>
-                        <a style="color: var(--secondaryText); font-family: 'Raleway', sans-serif;" href="index.html#contact">contact</a>
-                    </ul>
-                </div>
-                <div class="left-column" style="margin-right:90px;">
-                    <img id="profile_pic" src="files/ishaan.jpeg">
-                    <a href="index.html#work"><h5 style="text-align: center; line-height: 0; text-decoration: underline; color:lightblue">click to view work experience</h5></a>
-                    <h6 style="text-align: center; line-height: 0;">personalize theme ⤹</h6>
-                    <div id="theme-options-wrapper">
-                        <div data-mode="light" id="blue-mode" class="theme-dot"></div>
-                        <div data-mode="blue" id="purple-mode" class="theme-dot"></div>
-                        <div data-mode="green" id="green-mode" class="theme-dot"></div>
-                        <div data-mode="purple" id="light-mode" class="theme-dot"></div>
-                    </div>
-                    <p id="settings-note">*theme settings will be saved for<br>your next visit</p>
-                </div>
-                <div class="right-column">
-                    <div id="preview-shadow">
-                        <div id="preview">
-                            <div id="corner-tl" class="corner"></div>
-                            <div id="corner-tr" class="corner"></div>
-                            <h3>a little about me :)</h3>
-                            <div class="scroll-container">
-                                <div class="scroll-text">
-                                    <h5> A third-year undergraduate computer science student - University of Alberta</h5>
+
+                        <!-- Menu bar -->
+                        <div class="menubar">
+                            <div class="menubar-left">
+                                <div class="logo-menu">
+                                    <button type="button" id="logo-button" class="menubar-logo" aria-haspopup="true" aria-expanded="false" aria-controls="logo-menu" aria-label="Main menu">IM</button>
+                                    <div class="menu-dropdown" id="logo-menu" role="menu" hidden>
+                                        <button type="button" role="menuitem" data-action="about">About This Portfolio</button>
+                                        <button type="button" role="menuitem" data-action="spotlight">Spotlight Search <kbd>⌘K</kbd></button>
+                                        <button type="button" role="menuitem" data-action="simple">Switch to Simple View</button>
+                                        <hr>
+                                        <button type="button" role="menuitem" data-action="sleep">Sleep</button>
+                                        <button type="button" role="menuitem" data-action="restart">Restart…</button>
+                                    </div>
+                                </div>
+                                <a href="index.html#projects" data-open="projects">portfolio</a>
+                                <a href="index.html#demos" data-open="demos">demos</a>
+                                <a href="index.html#resume" data-open="resume">résumé</a>
+                                <a href="index.html#contact" data-open="contact">contact</a>
+                                <div class="settings-menu">
+                                    <button id="settings-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="settings-panel">settings</button>
+                                    <div id="settings-panel" role="dialog" aria-label="Settings" hidden>
+                                        <p class="settings-path">settings</p>
+                                        <div class="settings-group">
+                                            <span class="settings-label" id="appearance-label">appearance</span>
+                                            <div class="segmented" role="radiogroup" aria-labelledby="appearance-label">
+                                                <button type="button" role="radio" data-appearance="light">☀ light</button>
+                                                <button type="button" role="radio" data-appearance="dark">☾ dark</button>
+                                                <button type="button" role="radio" data-appearance="system">◐ auto</button>
+                                            </div>
+                                        </div>
+                                        <div class="settings-group">
+                                            <span class="settings-label" id="themes-label">themes</span>
+                                            <div class="theme-grid" role="radiogroup" aria-labelledby="themes-label"></div>
+                                        </div>
+                                        <p class="settings-note">hover to preview · click to apply · saved for your next visit</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div id="corner-br" class="corner"></div>
-                            <div id="corner-bl" class="corner"></div>
+                            <div class="menubar-right">
+                                <button type="button" class="view-toggle" id="view-toggle" aria-pressed="false" title="Show everything as a simple page">Simple view</button>
+                                <button type="button" class="menubar-spotlight" aria-label="Spotlight search (Ctrl+K)" title="Spotlight (⌘K / Ctrl+K)"><svg class="menubar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg></button>
+                                <svg class="menubar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm-4.6-3.1a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0l-1.4-1.4ZM4.2 12.2a11 11 0 0 1 15.6 0l-1.4 1.4a9 9 0 0 0-12.8 0l-1.4-1.4ZM1 9a15.5 15.5 0 0 1 22 0l-1.4 1.4a13.5 13.5 0 0 0-19.2 0L1 9Z"/></svg>
+                                <svg class="menubar-icon battery" viewBox="0 0 28 14" aria-hidden="true"><rect x="0.5" y="0.5" width="23" height="13" rx="3.5" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="16" height="9" rx="2"/><rect x="25" y="4.5" width="2" height="5" rx="1"/></svg>
+                                <time class="menubar-clock" id="menubar-clock"></time>
+                            </div>
                         </div>
+
+                        <!-- Profile widget: the at-a-glance summary (filled in by profile.js) -->
+                        <section class="widget" aria-labelledby="widget-name">
+                            <div class="widget-head">
+                                <img src="files/ishaan-profile.jpg" alt="Portrait of Ishaan Meena">
+                                <div class="widget-text">
+                                    <h2 class="widget-name" id="widget-name">Ishaan Meena</h2>
+                                    <p class="widget-role"><span class="status-dot" aria-hidden="true"></span><span class="widget-role-text">Co-op Researcher · Huawei</span></p>
+                                    <p class="widget-sub">Computer Science · University of Alberta</p>
+                                </div>
+                            </div>
+                            <ul class="widget-stats" aria-label="At a glance">
+                                <li><strong class="stat-projects">–</strong><span>projects</span></li>
+                                <li><strong class="stat-demos">–</strong><span>live demos</span></li>
+                                <li><strong class="stat-roles">–</strong><span>roles</span></li>
+                            </ul>
+                            <div class="widget-section">
+                                <p class="widget-label">Focus</p>
+                                <ul class="widget-skills" aria-label="Key skills"></ul>
+                            </div>
+                            <div class="widget-actions">
+                                <button type="button" data-open="projects">Explore projects</button>
+                                <button type="button" data-open="demos">▶ Try a live demo</button>
+                            </div>
+                        </section>
+
+                        <!-- Terminal app window -->
+                        <div class="app-window" id="terminal-window" data-app="terminal" data-title="Terminal" role="region" aria-label="Terminal">
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">ishaan — portfolio-sh — 80×24</span>
+                            </div>
+                            <div id="terminal">
+                                <div id="term-output" aria-live="polite"></div>
+                                <form id="term-form" autocomplete="off">
+                                    <label for="term-input" id="term-prompt">ishaan@portfolio:~$</label>
+                                    <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go" aria-label="Terminal command">
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- Projects app (finder.js) -->
+                        <div class="app-window finder" id="projects-window" data-app="projects" data-title="Finder" data-sheet role="region" aria-label="Projects" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="finder-path">All Projects</span>
+                                <input type="search" class="finder-search" placeholder="Search" aria-label="Search projects">
+                            </div>
+                            <div class="finder-body">
+                                <nav class="finder-sidebar" aria-label="Folders"></nav>
+                                <div class="finder-main">
+                                    <div class="finder-grid" role="listbox" aria-label="Projects"></div>
+                                    <p class="finder-status"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Look (finder.js) -->
+                        <div class="quicklook" id="quicklook" role="dialog" aria-labelledby="ql-title" hidden>
+                            <div class="ql-bar">
+                                <button type="button" class="ql-close" aria-label="Close preview">×</button>
+                                <span id="ql-title"></span>
+                                <button type="button" class="ql-demo">▶ Run demo</button>
+                                <a class="ql-open" target="_blank" rel="noopener">Open on GitHub ↗</a>
+                            </div>
+                            <img class="ql-image" alt="">
+                            <div class="ql-info">
+                                <p class="ql-desc"></p>
+                                <ul class="ql-details"></ul>
+                                <p class="ql-meta"></p>
+                                <div class="ql-tags"></div>
+                            </div>
+                            <div class="ql-nav">
+                                <button type="button" class="ql-prev" aria-label="Previous project">‹</button>
+                                <span class="ql-count"></span>
+                                <button type="button" class="ql-next" aria-label="Next project">›</button>
+                            </div>
+                        </div>
+
+                        <!-- Spotlight (finder.js) -->
+                        <div class="spotlight" id="spotlight" role="dialog" aria-label="Spotlight search" hidden>
+                            <div class="spotlight-field">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
+                                <input id="spotlight-input" type="text" placeholder="Spotlight Search" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="spotlight-results">
+                            </div>
+                            <ul id="spotlight-results" role="listbox" aria-label="Results"></ul>
+                        </div>
+
+                        <!-- Contacts app (profile.js) -->
+                        <div class="app-window contact-app" id="contact-window" data-app="contact" data-title="Contacts" data-sheet role="region" aria-label="Contact" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">Contact</span>
+                            </div>
+                            <div class="contact-card"></div>
+                        </div>
+
+                        <!-- Résumé app (profile.js) -->
+                        <div class="app-window resume-app" id="resume-window" data-app="resume" data-title="Preview" data-sheet role="region" aria-label="Résumé" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">Ishaan_Meena_Resume.pdf</span>
+                                <a class="resume-download" href="files/Ishaan_Meena_Resume.pdf" download="Ishaan_Meena_Resume.pdf">Download PDF</a>
+                            </div>
+                            <div class="resume-scroll">
+                                <article class="resume-page" aria-label="Résumé"></article>
+                            </div>
+                        </div>
+
+                        <!-- Live Demos app (demos/demos.js) -->
+                        <div class="app-window demos-app" id="demos-window" data-app="demos" data-title="Live Demos" data-sheet role="region" aria-label="Live demos" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">Live Demos</span>
+                            </div>
+                            <div class="demos-body">
+                                <nav class="demos-list" aria-label="Demos"></nav>
+                                <section class="demos-stage" aria-labelledby="demo-title">
+                                    <header class="demo-header">
+                                        <div>
+                                            <h2 class="demo-title" id="demo-title"></h2>
+                                            <p class="demo-blurb"></p>
+                                        </div>
+                                        <div class="demo-links">
+                                            <button type="button" class="demo-btn demo-details">Project details</button>
+                                            <a class="demo-btn demo-code" target="_blank" rel="noopener">Code ↗</a>
+                                        </div>
+                                    </header>
+                                    <div class="demo-mount"></div>
+                                    <p class="demo-note"></p>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Boot screen (desktop.js) -->
+                        <div class="boot-screen" id="boot-screen" aria-hidden="true" hidden>
+                            <span class="boot-logo">IM</span>
+                            <span class="boot-bar"><span></span></span>
+                        </div>
+
+                        <!-- Dock -->
+                        <nav class="dock" aria-label="Dock">
+                            <button type="button" class="dock-item is-running" data-app="terminal" aria-label="Terminal">
+                                <span class="dock-icon icon-terminal" aria-hidden="true">&gt;_</span>
+                                <span class="dock-tip">Terminal</span>
+                            </button>
+                            <button type="button" class="dock-item" data-app="projects" aria-label="Projects">
+                                <span class="dock-icon icon-projects" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h4l2 2h7A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Z"/></svg></span>
+                                <span class="dock-tip">Projects</span>
+                            </button>
+                            <button type="button" class="dock-item" data-app="demos" aria-label="Live demos">
+                                <span class="dock-icon icon-demos" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.1v13.8a1 1 0 0 0 1.5.86l11-6.9a1 1 0 0 0 0-1.72l-11-6.9A1 1 0 0 0 8 5.1Z"/></svg></span>
+                                <span class="dock-tip">Live Demos</span>
+                            </button>
+                            <button type="button" class="dock-item" data-app="contact" aria-label="Contact">
+                                <span class="dock-icon icon-mail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm0 1.8V17h16V7.8l-8 5.4-8-5.4Zm.9-.8L12 11.8 19.1 7H4.9Z"/></svg></span>
+                                <span class="dock-tip">Contact</span>
+                            </button>
+                            <button type="button" class="dock-item" data-app="resume" aria-label="Résumé">
+                                <span class="dock-icon icon-resume" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V8h4.5L13 3.5ZM7 11v1.6h10V11H7Zm0 3.2v1.6h10v-1.6H7Zm0 3.2V19h7v-1.6H7Z"/></svg></span>
+                                <span class="dock-tip">Résumé</span>
+                            </button>
+                            <span class="dock-divider" aria-hidden="true"></span>
+                            <button type="button" class="dock-item" data-app="settings" aria-label="Settings">
+                                <span class="dock-icon icon-settings" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10.3 2h3.4l.5 2.6a8 8 0 0 1 1.9 1.1l2.5-.9 1.7 2.9-2 1.8a8 8 0 0 1 0 2.2l2 1.8-1.7 2.9-2.5-.9a8 8 0 0 1-1.9 1.1l-.5 2.6h-3.4l-.5-2.6a8 8 0 0 1-1.9-1.1l-2.5.9-1.7-2.9 2-1.8a8 8 0 0 1 0-2.2l-2-1.8 1.7-2.9 2.5.9a8 8 0 0 1 1.9-1.1l.5-2.6ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg></span>
+                                <span class="dock-tip">Settings</span>
+                            </button>
+                        </nav>
                     </div>
                 </div>
+                <div class="laptop-base" aria-hidden="true"><span class="laptop-groove"></span></div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="s1" id="second">
-        <div class="main-container">
-            <h1 style="text-align: center; margin-top:60px;" id="portfolio"> My portfolio of CS projects ↴</h1>
-
-            <!-- Machine Learning and Artificial Intelligence -->
-            <h2 style="text-align: center;">Machine Learning and Neural Networks</h2>
-            <h4 style="text-align: center;">PyTorch, TensorFlow, Scikit-Learn, Numpy</h4>
-            <div class="post-wrapper">
-                <div class="post">
-                    <img class="thumbnail" src="files/emotion-detection.png">
-                    <div class="post-preview">
-                        <h6 class="post-title">Emotion Detection Neural Network</h6>
-                        <p class="post-intro">Developed a neural network model to detect emotions from textual data.</p>
-                        <a href="https://github.com/Ishaan6233/Emotion-Detection-NeuralNetwork">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/heart-disease-detection.png">
-                    <div class="post-preview">
-                        <h6 class="post-title">Heart Disease Detection</h6>
-                        <p class="post-intro">Machine learning project for predicting heart disease using medical data.</p>
-                        <a href="https://github.com/Ishaan6233/Heart-Disease-Detection-ML">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/phishing-detection.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Phishing Detection</h6>
-                        <p class="post-intro">Identified phishing emails using machine learning and NLP techniques.</p>
-                        <a href="https://github.com/Ishaan6233/Phishing-Detection-ML">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/bee-detection.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Bee Identification</h6>
-                        <p class="post-intro">ML project to identify bee species using image classification.</p>
-                        <a href="https://github.com/Ishaan6233/Bee-Identification-Using-ML">View Repository</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Natural Language Processing (NLP) -->
-            <h2 style="text-align: center;">Natural Language Processing and Text Processing</h2>
-            <h4 style="text-align: center;">Python, NLTK, Regular Expressions</h4>
-            <div class="post-wrapper">
-                <div class="post">
-                    <img class="thumbnail" src="files/data-cleaning.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Data Cleaning and Transformation</h6>
-                        <p class="post-intro">Cleaned CHILDES dataset using regex, transforming text to ARPAbet format.</p>
-                        <a href="https://github.com/Ishaan6233/Data-Cleaning-and-Transformation">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/grammar.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Grammar Checker</h6>
-                        <p class="post-intro">Created a grammar checker with CFG parsing for error detection.</p>
-                        <a href="https://github.com/Ishaan6233/Grammar-Checker">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/hmm.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">POS Tagging with HMM and Brill</h6>
-                        <p class="post-intro">Trained and evaluated HMM and Brill taggers for POS tagging on GUM corpus.</p>
-                        <a href="https://github.com/Ishaan6233/POS-Tagging-HMM-and-Brill">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/sentiment-analysis.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Sentiment Analysis</h6>
-                        <p class="post-intro">Implemented sentiment analysis on movie reviews using Naive Bayes classifier.</p>
-                        <a href="https://github.com/Ishaan6233/Sentiment-Analysis">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/text-summarization.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Text Summarization</h6>
-                        <p class="post-intro">Developed an extractive text summarizer using TF-IDF and cosine similarity.</p>
-                        <a href="https://github.com/Ishaan6233/Text-Summarization">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/NB.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Naive Bayes Classifier</h6>
-                        <p class="post-intro">Implemented Naive Bayes classifier for relation extraction in a dataset.</p>
-                        <a href="https://github.com/Ishaan6233/Naive-Bayes-Classifier">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/phonetic-sequence-modeling.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Phonetic Sequence Modeling with N-grams</h6>
-                        <p class="post-intro">Implemented n-gram models (unigram, bigram, trigram) to evaluate phonetic sequences.</p>
-                        <a href="https://github.com/Ishaan6233/n-gram.png">View Repository</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Data Analysis and Visualization -->
-            <h2 style="text-align: center;">Data Analysis and Visualization</h2>
-            <h4 style="text-align: center;">Python, Pandas, Matplotlib</h4>
-            <div class="post-wrapper">
-                <div class="post">
-                    <img class="thumbnail" src="files/nike.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Nike Data Analysis</h6>
-                        <p class="post-intro">Analyzed Nike’s sales and customer demographics data for insights.</p>
-                        <a href="https://github.com/Ishaan6233/Nike-DataAnalysis.github.io">View Repository</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Applications and Utilities -->
-            <h2 style="text-align: center;">Applications and Utilities</h2>
-            <h4 style="text-align: center;">Python, GUI, Web Scraping</h4>
-            <div class="post-wrapper">
-                <div class="post">
-                    <img class="thumbnail" src="files/calculator.jpg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Enhanced GUI Calculator</h6>
-                        <p class="post-intro">Built a GUI calculator with extended functions for scientific calculations.</p>
-                        <a href="https://github.com/Ishaan6233/Enhanced-GUI-Calculator">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/text-editor.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Text Editor</h6>
-                        <p class="post-intro">A Python-based text editing application with essential editing features.</p>
-                        <a href="https://github.com/Ishaan6233/text-editor">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/finance-tracker.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Finance Tracker</h6>
-                        <p class="post-intro">A Python-based Finance Tracker.</p>
-                        <a href="https://github.com/Ishaan6233/Finance-Tracker">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/expense.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Expense Tracker Application</h6>
-                        <p class="post-intro">A Python-based Expense-Tracker-Application</p>
-                        <a href="https://github.com/Ishaan6233/Expense-Tracker-Application">View Repository</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Games and Simulations -->
-            <h2 style="text-align: center;">Games and Simulations</h2>
-            <h4 style="text-align: center;">Python</h4>
-            <div class="post-wrapper">
-                <div class="post">
-                    <img class="thumbnail" src="files/sudoku.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Sudoku Solver</h6>
-                        <p class="post-intro">Python program that solves Sudoku puzzles using backtracking algorithms.</p>
-                        <a href="https://github.com/Ishaan6233/Sudoku-Game">View Repository</a>
-                    </div>
-                </div>
-                 <div class="post">
-                    <img class="thumbnail" src="files/pokemon.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Pokemon Game</h6>
-                        <p class="post-intro">Python program for Pokemon Game Simulator.</p>
-                        <a href="https://github.com/Ishaan6233/Pokemon-Battle-Simulator">View Repository</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img class="thumbnail" src="files/hangman.jpeg">
-                    <div class="post-preview">
-                        <h6 class="post-title">Hangman Game</h6>
-                        <p class="post-intro">A simple Hangman game built in Python to demonstrate game logic.</p>
-                        <a href="https://github.com/Ishaan6233/Hangman-Game">View Repository</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Simple view: the same content as a plain, linear page (profile.js) -->
+    <section class="simple-view" id="simple-view" aria-labelledby="simple-name" hidden tabindex="-1">
+        <div class="simple-inner"></div>
     </section>
 
-    <section class="s1" id="contact" style="padding: 60px 20px; text-align: center;">
-        <div class="main-container">
-            <h1>Contact Me</h1>
-            <p>Feel free to reach out through the following methods:</p>
-            <p><strong>Email:</strong> ishhaan.m@gmail.com</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ishaan-meena" target="_blank">linkedin.com/in/ishaan-meena</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/Ishaan6233" target="_blank">github.com/Ishaan6233</a></p>
-        </div>
-    </section>
-    
+    <noscript>
+        <section class="simple-view">
+            <div class="simple-inner">
+                <h2>Ishaan Meena</h2>
+                <p>Computer Science student at the University of Alberta: machine learning, NLP and software development.</p>
+                <p>
+                    <a href="mailto:ishhaan.m@gmail.com">ishhaan.m@gmail.com</a> ·
+                    <a href="https://www.linkedin.com/in/ishaan-meena">LinkedIn</a> ·
+                    <a href="https://github.com/Ishaan6233">GitHub</a>
+                </p>
+            </div>
+        </section>
+    </noscript>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="projects-data.js"></script>
+    <script src="terminal.js"></script>
+    <script src="window-manager.js"></script>
+    <script src="finder.js"></script>
+    <script src="desktop.js"></script>
+    <script src="flow.js"></script>
+    <script src="profile.js"></script>
+    <script src="demos/ml-utils.js"></script>
+    <script src="demos/sudoku.js"></script>
+    <script src="demos/cliff-walking.js"></script>
+    <script src="demos/pos-tagger.js"></script>
+    <script src="demos/sentiment.js"></script>
+    <script src="demos/summarizer.js"></script>
+    <script src="demos/spam.js"></script>
+    <script src="demos/heart.js"></script>
+    <script src="demos/grammar.js"></script>
+    <script src="demos/calculator.js"></script>
+    <script src="demos/games.js"></script>
+    <script src="demos/nike.js"></script>
+    <script src="demos/demos.js"></script>
 </body>
 </html>
