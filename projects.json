@@ -1,0 +1,273 @@
+{
+  "profile": {
+    "name": "Ishaan Meena",
+    "headline": "Computer Science @ University of Alberta · Co-op Researcher in Computer Vision & ML at Huawei",
+    "school": "University of Alberta",
+    "location": "Ontario, Canada",
+    "photo": "files/ishaan-profile.jpg",
+    "resume": "files/Ishaan_Meena_Resume.pdf",
+    "summary": "Computer Science student at the University of Alberta working across machine learning research and full-stack engineering. Currently a co-op researcher at Huawei Technologies Canada building feed-forward 3D scene reconstruction in PyTorch; previously built an LLM-powered Graph-RAG interface for BIM digital twins and shipped a production project-management platform with Next.js and Supabase.",
+    "education": [
+      {
+        "school": "University of Alberta",
+        "location": "Edmonton, Canada",
+        "degree": "Bachelor of Science in Computer Science",
+        "dates": "Sep 2022 – Dec 2027",
+        "gpa": "3.60 / 4.0"
+      }
+    ],
+    "experience": [
+      {
+        "role": "Co-op Researcher, Computer Vision and Machine Learning",
+        "org": "Huawei Technologies Canada",
+        "dates": "May 2026 – Present",
+        "tags": ["PyTorch", "Transformers", "3D CNNs", "3D Reconstruction"],
+        "bullets": [
+          "Developed a state-of-the-art feed-forward 3D scene reconstruction system in PyTorch that generates object-level meshes and 3D layouts from posed multi-view images, achieving SOTA performance against adjacent methods.",
+          "Designed a visibility- and occlusion-aware geometry-completion architecture combining Transformers, 3D CNNs, cross-view evidence and generative 3D priors; reduced Scene CD by 31.5% and Scene CD-S by 36.8%, while improving Scene F-score by 3.67 points over the matched non-occlusion ablation.",
+          "Built reproducible preprocessing, training, benchmarking and ablation pipelines spanning ground-truth and predicted-mask settings; evaluated recent 3D reconstruction methods and analyzed 156 scenes to isolate failures in segmentation, object layout and shape completion.",
+          "Preparing an ICLR 2027 paper and accompanying research codebase, translating literature reviews and quantitative failure analysis into novel architectural contributions, and presenting findings through weekly and monthly research reviews."
+        ]
+      },
+      {
+        "role": "Applied Research AI Capstone Project",
+        "org": "PCL",
+        "dates": "Jan – May 2026",
+        "tags": ["LLMs", "Text-to-SQL", "Graph-RAG"],
+        "bullets": [
+          "Developed an LLM-powered natural-language interface for BIM digital twins, combining Text-to-SQL and Graph-RAG-based information retrieval for multi-hop spatial reasoning and entity-centric question answering.",
+          "Produced research-style evaluations analyzing accuracy, failure modes and graph traversal behavior."
+        ]
+      },
+      {
+        "role": "Software Engineering Intern",
+        "org": "Steadfast Engineering",
+        "dates": "Sep – Dec 2025",
+        "tags": ["Next.js", "React", "TypeScript", "Supabase", "Drizzle ORM", "Vercel"],
+        "bullets": [
+          "Developed a full-stack project management system using Next.js, React 19, TypeScript, Drizzle ORM, Supabase and Vercel, streamlining workflow for 250+ annual projects and reducing manual tracking errors by ~40%.",
+          "Implemented secure authentication, role-based access control, time tracking, payroll exports (Excel/PDF), budget/KPI dashboards and real-time team workload monitoring, enabling leads and admins to manage 50+ concurrent projects efficiently.",
+          "Designed and deployed data migration pipelines, Gantt-based project scheduling and KPI reporting APIs, maintaining historical records from 2016 onward and improving decision-making speed and accuracy by ~35% for management."
+        ]
+      }
+    ],
+    "skills": {
+      "Languages": ["Python", "C", "C++", "Java", "Kotlin", "SQL", "JavaScript", "TypeScript", "HTML/CSS", "R"],
+      "ML & Data Science": ["PyTorch", "TensorFlow", "Scikit-Learn", "Transformers", "NumPy", "Pandas", "Matplotlib", "OpenAI Gym", "MLflow", "Kubeflow", "CUDA"],
+      "Backend & APIs": ["FastAPI", "Django REST", "Flask", "Spring Boot", "Go (Gin)", "Node.js", "Express.js", "REST APIs", "OAuth 2.0"],
+      "Frontend & Mobile": ["React.js", "Next.js", "Angular", "Vue.js", "React Native", "Svelte", "Tailwind CSS"],
+      "Databases": ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "Amazon Aurora", "Supabase", "Redis", "AWS S3"],
+      "Cloud & DevOps": ["AWS (EC2, Lambda, CloudWatch, S3)", "Google Cloud Platform", "Docker", "Vercel", "GitHub Actions", "Jenkins", "GitLab CI/CD"],
+      "Tools & Platforms": ["CUDA", "OpenCV", "Plotly", "Drizzle ORM", "Celery", "Redis Queue", "Streamlit", "WebRTC"]
+    },
+    "highlights": ["Machine Learning", "AI Engineering", "Software Engineering", "Data Science", "Computer Vision"],
+    "contact": {
+      "email": "ishhaan.m@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/ishaan-meena",
+      "github": "https://github.com/Ishaan6233"
+    }
+  },
+  "categories": [
+    { "id": "featured", "name": "Featured Projects", "stack": "" },
+    { "id": "ml", "name": "Machine Learning and Neural Networks", "stack": "PyTorch, TensorFlow, Scikit-Learn, Numpy" },
+    { "id": "rl", "name": "Reinforcement Learning", "stack": "Python, NumPy" },
+    { "id": "nlp", "name": "Natural Language Processing and Text Processing", "stack": "Python, NLTK, Regular Expressions" },
+    { "id": "data", "name": "Data Analysis and Visualization", "stack": "Python, Pandas, Matplotlib" },
+    { "id": "apps", "name": "Applications and Utilities", "stack": "Python, GUI, Web Scraping" },
+    { "id": "games", "name": "Games and Simulations", "stack": "Python" }
+  ],
+  "projects": [
+    {
+      "title": "Diffusion & Flow Matching on CIFAR-10",
+      "category": "featured",
+      "description": "Latent-space DDPM and a Flow Matching model with time-embedded UNets, trained on 50k CIFAR-10 images.",
+      "tags": ["PyTorch", "DDPM", "Flow Matching", "UNet"],
+      "details": [
+        "Built and trained a latent-space DDPM using a fully connected autoencoder and time-embedded UNet on 50k CIFAR-10 images, implementing full forward and reverse diffusion; generated samples meeting expected benchmark quality (IS 1.5–2, FID 300–350).",
+        "Implemented a Flow Matching model with a time-embedded UNet and ODE-based reverse sampling."
+      ]
+    },
+    {
+      "title": "LexiServe: AI-Powered Text Intelligence API",
+      "category": "featured",
+      "description": "Full-stack NLP-as-a-Service platform for grammar correction, sentiment analysis and summarization.",
+      "tags": ["FastAPI", "React", "PostgreSQL", "Docker", "Transformers"],
+      "details": [
+        "Integrated fine-tuned BERT, T5 and DistilGPT2 models via TorchScript for <100 ms inference latency.",
+        "Built a React dashboard for real-time analytics with PostgreSQL-backed persistence.",
+        "Deployed scalable, containerized microservices (FastAPI + Celery + Redis) on AWS EC2, handling 10K+ API calls/day."
+      ]
+    },
+    {
+      "title": "YOLO Object Detection: High-Performance Deployment",
+      "category": "featured",
+      "description": "YOLOv5 adapted for multi-object detection in high-resolution RGB images under varied noise and lighting.",
+      "tags": ["PyTorch", "YOLOv5", "CUDA", "FastAPI", "Docker"],
+      "details": [
+        "Achieved 95% mAP at 30 FPS with GPU acceleration, benchmarking via IoU, precision/recall and confusion matrices.",
+        "Optimized inference using CUDA kernels, asynchronous data loading and batch preprocessing, cutting latency by 45%."
+      ]
+    },
+    {
+      "title": "Resource Locator: Data Ingestion & ETL Pipeline",
+      "category": "featured",
+      "description": "Automated data ingestion and indexing pipeline storing 100K+ records with <200 ms query latency.",
+      "tags": ["Python", "Amazon Aurora", "Web Scraping", "ETL"],
+      "details": [
+        "Built scalable ETL processes for structured resource retrieval and transformation.",
+        "Optimized data integrity using transactional batch updates and Aurora indexing, reducing cloud query costs by 25%."
+      ]
+    },
+    {
+      "title": "Emotion Detection Neural Network",
+      "category": "ml",
+      "description": "Developed a neural network model to detect emotions from textual data.",
+      "image": "files/emotion-detection.png",
+      "repo": "https://github.com/Ishaan6233/Emotion-Detection-NeuralNetwork"
+    },
+    {
+      "title": "Heart Disease Detection",
+      "category": "ml",
+      "description": "Machine learning project for predicting heart disease using medical data.",
+      "image": "files/heart-disease-detection.png",
+      "repo": "https://github.com/Ishaan6233/Heart-Disease-Detection-ML",
+      "demo": "heart"
+    },
+    {
+      "title": "Phishing Detection",
+      "category": "ml",
+      "description": "Identified phishing emails using machine learning and NLP techniques.",
+      "image": "files/phishing-detection.jpeg",
+      "repo": "https://github.com/Ishaan6233/Phishing-Detection-ML",
+      "demo": "spam"
+    },
+    {
+      "title": "Bee Identification",
+      "category": "ml",
+      "description": "ML project to identify bee species using image classification.",
+      "image": "files/bee-detection.jpg",
+      "repo": "https://github.com/Ishaan6233/Bee-Identification-Using-ML"
+    },
+    {
+      "title": "Data Cleaning and Transformation",
+      "category": "nlp",
+      "description": "Cleaned CHILDES dataset using regex, transforming text to ARPAbet format.",
+      "image": "files/data-cleaning.jpeg",
+      "repo": "https://github.com/Ishaan6233/Data-Cleaning-and-Transformation"
+    },
+    {
+      "title": "Grammar Checker",
+      "category": "nlp",
+      "description": "Created a grammar checker with CFG parsing for error detection.",
+      "image": "files/grammar.jpeg",
+      "repo": "https://github.com/Ishaan6233/Grammar-Checker",
+      "demo": "grammar"
+    },
+    {
+      "title": "POS Tagging with HMM and Brill",
+      "category": "nlp",
+      "description": "Trained and evaluated HMM and Brill taggers for POS tagging on GUM corpus.",
+      "image": "files/POS-Taggingjpg.jpg",
+      "repo": "https://github.com/Ishaan6233/POS-Tagging-HMM-and-Brill",
+      "demo": "pos-tagger"
+    },
+    {
+      "title": "Sentiment Analysis",
+      "category": "nlp",
+      "description": "Implemented sentiment analysis on movie reviews using Naive Bayes classifier.",
+      "image": "files/sentiment-analysis.jpg",
+      "demo": "sentiment"
+    },
+    {
+      "title": "Text Summarization",
+      "category": "nlp",
+      "description": "Developed an extractive text summarizer using TF-IDF and cosine similarity.",
+      "image": "files/text-summarization.jpeg",
+      "demo": "summarizer"
+    },
+    {
+      "title": "Naive Bayes Classifier",
+      "category": "nlp",
+      "description": "Implemented Naive Bayes classifier for relation extraction in a dataset.",
+      "image": "files/NB.jpg",
+      "repo": "https://github.com/Ishaan6233/Naive-Bayes-Classifier"
+    },
+    {
+      "title": "Phonetic Sequence Modeling with N-grams",
+      "category": "nlp",
+      "description": "Implemented n-gram models (unigram, bigram, trigram) to evaluate phonetic sequences.",
+      "image": "files/n-gram.png",
+      "repo": "https://github.com/Ishaan6233/Phonetic-Sequence-Modeling-with-N-grams"
+    },
+    {
+      "title": "Nike Data Analysis",
+      "category": "data",
+      "description": "Analyzed Nike’s sales and customer demographics data for insights.",
+      "image": "files/nike.jpeg",
+      "repo": "https://github.com/Ishaan6233/Nike-DataAnalysis.github.io",
+      "demo": "nike"
+    },
+    {
+      "title": "Enhanced GUI Calculator",
+      "category": "apps",
+      "description": "Built a GUI calculator with extended functions for scientific calculations.",
+      "image": "files/calculator.jpg",
+      "repo": "https://github.com/Ishaan6233/Enhanced-GUI-Calculator",
+      "demo": "calculator"
+    },
+    {
+      "title": "Text Editor",
+      "category": "apps",
+      "description": "A Python-based text editing application with essential editing features.",
+      "image": "files/text-editor.jpeg",
+      "repo": "https://github.com/Ishaan6233/text-editor"
+    },
+    {
+      "title": "Finance Tracker",
+      "category": "apps",
+      "description": "A Python-based Finance Tracker.",
+      "image": "files/finance-tracker.jpeg",
+      "repo": "https://github.com/Ishaan6233/Finance-Tracker"
+    },
+    {
+      "title": "Expense Tracker Application",
+      "category": "apps",
+      "description": "A Python-based Expense-Tracker-Application",
+      "image": "files/expense.jpeg",
+      "repo": "https://github.com/Ishaan6233/Expense-Tracker-Application"
+    },
+    {
+      "title": "Sudoku Solver",
+      "category": "games",
+      "description": "Java Swing game that generates Sudoku puzzles at three difficulty levels and solves them with backtracking.",
+      "tags": ["Java", "Swing", "Backtracking"],
+      "image": "files/sudoku.jpeg",
+      "repo": "https://github.com/Ishaan6233/Sudoku-Game",
+      "demo": "sudoku"
+    },
+    {
+      "title": "Pokemon Game",
+      "category": "games",
+      "description": "Python program for Pokemon Game Simulator.",
+      "image": "files/pokemon.jpeg",
+      "repo": "https://github.com/Ishaan6233/Pokemon-Battle-Simulator",
+      "demo": "pokemon"
+    },
+    {
+      "title": "Hangman Game",
+      "category": "games",
+      "description": "A simple Hangman game built in Python to demonstrate game logic.",
+      "image": "files/hangman.jpeg",
+      "repo": "https://github.com/Ishaan6233/Hangman-Game",
+      "demo": "hangman"
+    },
+    {
+      "title": "Cliff Walking: Q-learning vs Expected Sarsa",
+      "category": "rl",
+      "description": "Implemented and compared Q-learning and Expected Sarsa on the Cliff World gridworld, analysing reward convergence and policy safety under ε-greedy exploration.",
+      "tags": ["Python", "NumPy", "Reinforcement Learning"],
+      "repo": "https://github.com/Ishaan6233/CliffWalking-QLearning-ExpectedSARSA",
+      "demo": "cliff-walking"
+    }
+  ]
+}
