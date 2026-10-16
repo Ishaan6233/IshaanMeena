@@ -1,0 +1,16 @@
+<!doctype html><body style="margin:0"><iframe id="f" style="width:1440px;height:900px;border:0"></iframe><pre id="o"></pre>
+<script>
+sessionStorage.setItem('booted','1'); f.src='index.html'
+f.onload = () => setTimeout(() => {
+  const w = f.contentWindow, d = f.contentDocument
+  w.requestAnimationFrame = cb => w.setTimeout(() => cb(w.performance.now()), 16)
+  w.raceMode.start()
+  setTimeout(() => {
+    const c = d.querySelector('.race-canvas'), cs = w.getComputedStyle(c)
+    const px = c.getContext('2d').getImageData(0, 0, c.width, c.height).data
+    let lit = 0; for (let i = 3; i < px.length; i += 400) if (px[i] > 0) lit++
+    const r = c.getBoundingClientRect()
+    o.textContent = JSON.stringify({ w: c.width, h: c.height, display: cs.display, z: cs.zIndex, pos: cs.position, rect: [r.left, r.top, r.width, r.height], litSamples: lit, parent: c.parentElement.id, top: d.elementFromPoint(40, 300).className })
+  }, 1500)
+}, 500)
+</script>

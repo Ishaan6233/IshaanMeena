@@ -108,6 +108,22 @@
 				print(`Try ${cmd('experience')}, ${cmd('projects')}, ${cmd('demo')} or ${cmd('resume')}.`)
 			},
 		},
+		drive: {
+			desc: 'game mode: drive a car, park on buttons to click',
+			run() {
+				if (!window.driveMode) return error('drive: not available')
+				print(`${accent('🏎 game mode')}: arrows / WASD to drive, park on anything clickable for 1.5 s to click it, Esc to exit.`)
+				setTimeout(() => window.driveMode.start(), 50)
+			},
+		},
+		race: {
+			desc: 'race the AI around a circuit (+ parking)',
+			run() {
+				if (!window.raceMode) return error('race: not available')
+				print(`${accent('🏁 race mode')}: 2 laps against the AI, then try parking in the infield. Esc to exit.`)
+				setTimeout(() => window.raceMode.start(), 50)
+			},
+		},
 		play: {
 			desc: 'play a game (hangman, pokemon)',
 			run(args) {

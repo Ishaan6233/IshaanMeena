@@ -4699,3 +4699,347 @@ body.window-covering{
 [data-theme="light"] .screen-aurora{
 	filter: none;
 }
+
+/* =====================================================================
+   Game mode (drive.js): a car you drive around; park on a button to click it
+   ===================================================================== */
+.drive-toggle{
+	display: flex;
+	align-items: center;
+	padding: 0 6px;
+	background: none;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.drive-toggle:hover,
+.drive-toggle[aria-pressed="true"]{
+	background-color: color-mix(in srgb, var(--mainText) 14%, transparent);
+}
+
+.drive-layer{
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	pointer-events: none; /* never blocks the page; also lets elementFromPoint see what's under the car */
+}
+
+.drive-layer[hidden]{
+	display: none;
+}
+
+.drive-marks{
+	position: absolute;
+	inset: 0;
+}
+
+.drive-car,
+.drive-ring{
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: none;
+	will-change: transform;
+}
+
+.drive-car{
+	filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
+}
+
+.drive-ring{
+	opacity: 0;
+	transition: opacity 120ms;
+}
+
+.drive-ring.on{
+	opacity: 1;
+}
+
+.drive-ring circle{
+	fill: none;
+	stroke-width: 4;
+	transform: rotate(-90deg);
+	transform-origin: 38px 38px;
+}
+
+.drive-ring-track{
+	stroke: rgba(255, 255, 255, 0.18);
+}
+
+.drive-ring-fill{
+	stroke: #ffd33d;
+	stroke-linecap: round;
+	transition: none;
+}
+
+.drive-ring.fired{
+	opacity: 1;
+	animation: drive-pop 300ms ease-out;
+}
+
+@keyframes drive-pop{
+	from{ transform-origin: center; filter: drop-shadow(0 0 12px #ffd33d); }
+}
+
+.drive-target{
+	outline: 2px dashed #ffd33d !important;
+	outline-offset: 3px;
+}
+
+.drive-toast{
+	position: absolute;
+	bottom: 18px;
+	left: 50%;
+	padding: 8px 16px;
+	transform: translateX(-50%);
+	background-color: rgba(10, 12, 20, 0.85);
+	border: 1px solid rgba(255, 211, 61, 0.5);
+	border-radius: 999px;
+	color: #fff;
+	font: 13px -apple-system, 'Segoe UI', system-ui, sans-serif;
+	white-space: nowrap;
+	transition: opacity 600ms;
+}
+
+.drive-toast b{
+	color: #ffd33d;
+	font-family: inherit;
+}
+
+.drive-toast.hide{
+	opacity: 0;
+}
+
+
+/* ---------- Joystick (touch screens) ---------- */
+.drive-joystick{
+	position: absolute;
+	left: 22px;
+	bottom: 22px;
+	display: none;
+	place-items: center;
+	width: 120px;
+	height: 120px;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04) 70%);
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	border-radius: 50%;
+	pointer-events: auto;
+	touch-action: none; /* the page must not scroll or zoom while steering */
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+
+.drive-joystick.held{
+	border-color: #ffd33d;
+}
+
+.drive-joy-knob{
+	width: 50px;
+	height: 50px;
+	background: radial-gradient(circle at 35% 35%, #fff, #c9ccd4);
+	border-radius: 50%;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+	transition: transform 120ms ease-out;
+}
+
+.drive-joystick.held .drive-joy-knob{
+	transition: none;
+}
+
+@media (pointer: coarse){
+	.drive-joystick{
+		display: grid;
+	}
+
+	.drive-toast{
+		bottom: 160px;
+		white-space: normal;
+		width: max-content;
+		max-width: calc(100vw - 32px);
+		text-align: center;
+	}
+}
+
+/* ---------- Race mode (race.js): the circuit appears behind the Mac ---------- */
+.race-canvas{
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.race-canvas[hidden],
+.race-ui-layer[hidden]{
+	display: none;
+}
+
+html.racing,
+html.racing body{
+	overflow: hidden;
+}
+
+/* The Mac steps back so the circuit shows through it */
+html.racing .laptop{
+	z-index: 1;
+	opacity: 0.32;
+	transform: scale(0.94);
+	pointer-events: none;
+	transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.laptop{
+	transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.race-ui-layer{
+	position: fixed;
+	inset: 0;
+	z-index: 100001;
+	pointer-events: none;
+	font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+}
+
+.race-hud{
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	display: flex;
+	gap: 16px;
+	padding: 7px 16px;
+	transform: translateX(-50%);
+	background: rgba(10, 12, 20, 0.82);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 999px;
+	color: #dfe3ea;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.race-hud span{
+	color: inherit;
+	font-family: inherit;
+}
+
+.race-hud b{
+	color: #fff;
+	font-variant-numeric: tabular-nums;
+}
+
+.race-hud .pos{
+	padding: 0 8px;
+	border-radius: 6px;
+	font-weight: 800;
+}
+
+.race-hud .p1{ background: #2ea043; color: #fff; }
+.race-hud .p2{ background: #d7263d; color: #fff; }
+
+.race-controls{
+	position: absolute;
+	top: 12px;
+	right: 14px;
+	display: flex;
+	gap: 6px;
+}
+
+.race-ui-layer button{
+	padding: 6px 12px;
+	background: rgba(10, 12, 20, 0.85);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	color: #fff;
+	font: 600 13px -apple-system, 'Segoe UI', system-ui, sans-serif;
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.race-ui-layer button:hover,
+.race-ui-layer button:focus-visible{
+	border-color: #ffd33d;
+	outline: none;
+}
+
+.race-banner{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font: 900 96px -apple-system, 'Segoe UI', system-ui, sans-serif;
+	text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+	transition: opacity 300ms;
+}
+
+.race-banner.count{ color: #ffd33d; }
+.race-banner.go{ color: #2ee66b; }
+.race-banner.hide{ opacity: 0; }
+
+.race-panel{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: min(360px, calc(100vw - 32px));
+	padding: 22px 26px;
+	transform: translate(-50%, -50%);
+	background: rgba(12, 14, 24, 0.94);
+	border: 1px solid rgba(255, 211, 61, 0.45);
+	border-radius: 16px;
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+	color: #dfe3ea;
+	text-align: center;
+	pointer-events: auto;
+}
+
+.race-panel[hidden]{
+	display: none;
+}
+
+.race-panel h2{
+	margin: 0 0 8px;
+	color: #fff;
+	font: 800 26px -apple-system, 'Segoe UI', system-ui, sans-serif;
+}
+
+.race-panel p{
+	margin: 6px 0;
+	color: #dfe3ea;
+	font: 14px -apple-system, 'Segoe UI', system-ui, sans-serif;
+}
+
+.race-panel b{
+	color: #fff;
+}
+
+.race-actions{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 14px;
+}
+
+.race-panel .race-hint{
+	color: #8b93a1;
+	font-size: 12px;
+}
+
+@media (pointer: coarse), (max-width: 700px){
+	.race-hud{
+		top: 8px;
+		gap: 10px;
+		font-size: 12px;
+	}
+
+	.race-controls{
+		top: auto;
+		bottom: 22px;
+		right: 14px;
+	}
+
+	.race-banner{
+		font-size: 72px;
+	}
+}
