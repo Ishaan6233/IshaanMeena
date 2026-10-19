@@ -241,6 +241,7 @@
 		{ name: 'Projects', hint: 'Application', run: () => show() },
 		{ name: 'Live Demos', hint: 'Application', run: () => window.demos && window.demos.open() },
 		{ name: 'Contact', hint: 'Application', run: () => window.wm.open('contact') },
+		{ name: 'Mail', hint: 'Application', run: () => window.wm.open('mail') },
 		{ name: 'Résumé', hint: 'Document', run: () => window.wm.open('resume') },
 		{ name: 'Settings', hint: 'System', run: () => document.querySelector('.dock-item[data-app="settings"]').click() },
 	]

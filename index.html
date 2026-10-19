@@ -213,6 +213,31 @@
                             <div class="contact-card"></div>
                         </div>
 
+                        <!-- Mail app (mail.js): sends a message straight to Ishaan's inbox -->
+                        <div class="app-window mail-app" id="mail-window" data-app="mail" data-title="Mail" data-sheet role="region" aria-label="Mail" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">New Message</span>
+                            </div>
+                            <form class="mail-form" novalidate>
+                                <div class="mail-row"><span class="mail-label">To:</span><span class="mail-to">Ishaan Meena</span></div>
+                                <label class="mail-row"><span class="mail-label">From:</span><input name="email" type="email" required autocomplete="email" placeholder="your@email.com"></label>
+                                <label class="mail-row"><span class="mail-label">Name:</span><input name="name" type="text" autocomplete="name" placeholder="Your name"></label>
+                                <label class="mail-row"><span class="mail-label">Subject:</span><input name="subject" type="text" placeholder="Hello!"></label>
+                                <input type="text" name="_honey" class="mail-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                <label class="sr-only" for="mail-message">Message</label>
+                                <textarea id="mail-message" name="message" required placeholder="Write your message…"></textarea>
+                                <div class="mail-footer">
+                                    <span class="mail-status" role="status"></span>
+                                    <button type="submit" class="demo-btn primary mail-send">Send ➤</button>
+                                </div>
+                            </form>
+                        </div>
+
                         <!-- Résumé app (profile.js) -->
                         <div class="app-window resume-app" id="resume-window" data-app="resume" data-title="Preview" data-sheet role="region" aria-label="Résumé" hidden>
                             <div class="titlebar">
@@ -278,9 +303,9 @@
                                 <span class="dock-icon icon-demos" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.1v13.8a1 1 0 0 0 1.5.86l11-6.9a1 1 0 0 0 0-1.72l-11-6.9A1 1 0 0 0 8 5.1Z"/></svg></span>
                                 <span class="dock-tip">Live Demos</span>
                             </button>
-                            <button type="button" class="dock-item" data-app="contact" aria-label="Contact">
+                            <button type="button" class="dock-item" data-app="mail" aria-label="Mail">
                                 <span class="dock-icon icon-mail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm0 1.8V17h16V7.8l-8 5.4-8-5.4Zm.9-.8L12 11.8 19.1 7H4.9Z"/></svg></span>
-                                <span class="dock-tip">Contact</span>
+                                <span class="dock-tip">Mail</span>
                             </button>
                             <button type="button" class="dock-item" data-app="resume" aria-label="Résumé">
                                 <span class="dock-icon icon-resume" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V8h4.5L13 3.5ZM7 11v1.6h10V11H7Zm0 3.2v1.6h10v-1.6H7Zm0 3.2V19h7v-1.6H7Z"/></svg></span>
@@ -328,6 +353,7 @@
     <script src="flow.js"></script>
     <script src="drive.js"></script>
     <script src="profile.js"></script>
+    <script src="mail.js"></script>
     <script src="demos/ml-utils.js"></script>
     <script src="demos/sudoku.js"></script>
     <script src="demos/cliff-walking.js"></script>
@@ -340,6 +366,8 @@
     <script src="demos/calculator.js"></script>
     <script src="demos/games.js"></script>
     <script src="demos/nike.js"></script>
+    <script src="demos/ngram.js"></script>
+    <script src="demos/relation.js"></script>
     <script src="demos/demos.js"></script>
 </body>
 </html>

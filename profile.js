@@ -97,7 +97,7 @@
 	}
 
 	function externalAttrs(kind) {
-		if (kind === 'mail') return ''
+		if (kind === 'mail') return ' data-open="mail"' // opens the Mail app (the href is a mailto: fallback)
 		if (kind === 'resume') return ' download="Ishaan_Meena_Resume.pdf"'
 		return ' target="_blank" rel="noopener"'
 	}

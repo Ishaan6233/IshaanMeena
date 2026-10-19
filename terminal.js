@@ -31,7 +31,7 @@
 				c.email ? `${accent('email')}     ${link('mailto:' + c.email, c.email)}` : '',
 				c.linkedin ? `${accent('linkedin')}  ${link(c.linkedin, short(c.linkedin))}` : '',
 				c.github ? `${accent('github')}    ${link(c.github, short(c.github))}` : '',
-				cmd('mail', '→ open the Contact app'),
+				cmd('mail', '→ send me a message'),
 			].filter(Boolean).join('\n')
 		},
 	}
@@ -318,7 +318,7 @@
 		vim: { hidden: true, run() { print(muted('you are now trapped in vim forever. just kidding, type :q') ) } },
 		':q': { hidden: true, run() { print(muted('see? easy.')) } },
 		hire: { hidden: true, run() { print(`${accent('excellent decision.')}\n` + FILES['contact.txt']()) } },
-		mail: { hidden: true, run() { if (window.wm) window.wm.open('contact'); print(muted('→ Contact')) } },
+		mail: { hidden: true, run() { if (window.wm) window.wm.open('mail'); print(muted('→ Mail: write me a message')) } },
 		hello: { hidden: true, run() { print('hey! 👋 thanks for stopping by.') } },
 		pwd: { hidden: true, run() { print(esc(cwd === '~' ? '/home/ishaan' : '/home/ishaan/' + cwd)) } },
 	}

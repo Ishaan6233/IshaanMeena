@@ -4863,3 +4863,196 @@ body.window-covering{
 	}
 }
 
+
+/* ---------- Phonetic n-grams ---------- */
+.ng-phones{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 12px 0 4px;
+	padding: 0;
+	list-style: none;
+}
+
+.ng-phones li{
+	padding: 3px 7px;
+	background-color: color-mix(in srgb, #2ea043 calc(var(--s) * 70%), #e5393b);
+	border-radius: 6px;
+	color: #fff;
+	font: 700 12px 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.ng-key{
+	padding: 0 6px;
+	border-radius: 4px;
+	color: #fff;
+}
+
+.ng-key.lo{ background: #e5393b; }
+.ng-key.hi{ background: #2ea043; }
+
+.ng-table{
+	width: 100%;
+	margin-top: 8px;
+}
+
+.ng-cell{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.ng-bar{
+	display: block;
+	height: 8px;
+	border-radius: 999px;
+}
+
+.ng-bar.real{ background: var(--linkColor); }
+.ng-bar.scr{ background: #8b93a1; }
+
+/* ---------- Relation extraction ---------- */
+.re-text-line{
+	margin: 4px 0;
+	color: var(--mainText);
+	font: 15px/1.9 var(--sysFont);
+}
+
+.re-head,
+.re-tail{
+	padding: 1px 4px;
+	border-radius: 4px;
+	color: #fff;
+}
+
+.re-head{ background: #8957e5; }
+.re-tail{ background: #0e8a7e; }
+
+.re-field{
+	display: block;
+	margin-top: 8px;
+	color: var(--secondaryText);
+	font: 12.5px var(--sysFont);
+}
+
+.re-field .demo-input{
+	margin-top: 4px;
+}
+
+.re-ok{ color: #2ea043; font-weight: 700; }
+.re-bad{ color: #e5393b; font-weight: 700; }
+
+.re-result .sent-result code{
+	color: var(--mainText);
+	font-size: 12px;
+}
+
+/* ---------- Mail app (mail.js) ---------- */
+.app-window.mail-app{
+	top: calc(var(--menubarH) + 7%);
+	left: 30%;
+	width: 44%;
+	height: auto;
+	max-height: calc(100% - var(--menubarH) - 100px);
+	background-color: var(--secondaryColor);
+}
+
+.mail-app .titlebar{
+	background: color-mix(in srgb, var(--mainColor) 70%, var(--secondaryColor));
+	border-bottom: 1px solid var(--borderColor);
+}
+
+.mail-app .titlebar-title{
+	color: var(--mainText);
+}
+
+.mail-form{
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	font-family: var(--sysFont);
+}
+
+.mail-row{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 14px;
+	border-bottom: 1px solid var(--borderColor);
+}
+
+.mail-form .mail-label{
+	flex: none;
+	width: 58px;
+	color: var(--secondaryText);
+	font: 13px var(--sysFont);
+}
+
+.mail-form .mail-to{
+	padding: 1px 9px;
+	background-color: color-mix(in srgb, var(--linkColor) 20%, transparent);
+	border-radius: 999px;
+	color: var(--mainText);
+	font: 13px var(--sysFont);
+}
+
+.mail-row input,
+.mail-form textarea{
+	flex: 1;
+	min-width: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	outline: none;
+	color: var(--mainText);
+	font: 13.5px var(--sysFont);
+}
+
+.mail-form textarea{
+	min-height: 170px;
+	padding: 12px 14px;
+	resize: vertical;
+	line-height: 1.5;
+}
+
+.mail-honey{
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.mail-footer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 14px;
+	border-top: 1px solid var(--borderColor);
+}
+
+.mail-form .mail-status{
+	color: var(--secondaryText);
+	font: 12.5px var(--sysFont);
+}
+
+.mail-status.ok{ color: #2ea043; }
+.mail-status.error{ color: #e5393b; }
+
+@media screen and (max-width: 1000px){
+	.app-window.mail-app{ left: 10%; width: 80%; }
+}
+
+@media screen and (max-width: 700px){
+	.desktop .app-window.mail-app{
+		position: fixed;
+		inset: 0;
+		z-index: 2000 !important;
+		width: auto;
+		height: auto;
+		max-height: none;
+		margin: 0;
+		border-radius: 0;
+	}
+}
