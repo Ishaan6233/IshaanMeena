@@ -190,14 +190,16 @@
       "category": "nlp",
       "description": "Implemented Naive Bayes classifier for relation extraction in a dataset.",
       "image": "files/NB.jpg",
-      "repo": "https://github.com/Ishaan6233/Naive-Bayes-Classifier"
+      "repo": "https://github.com/Ishaan6233/Naive-Bayes-Classifier",
+      "demo": "relation"
     },
     {
       "title": "Phonetic Sequence Modeling with N-grams",
       "category": "nlp",
       "description": "Implemented n-gram models (unigram, bigram, trigram) to evaluate phonetic sequences.",
       "image": "files/n-gram.png",
-      "repo": "https://github.com/Ishaan6233/Phonetic-Sequence-Modeling-with-N-grams"
+      "repo": "https://github.com/Ishaan6233/Phonetic-Sequence-Modeling-with-N-grams",
+      "demo": "ngram"
     },
     {
       "title": "Nike Data Analysis",

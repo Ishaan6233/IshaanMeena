@@ -19,7 +19,7 @@ window.DEMOS = window.DEMOS || {}
 	const windowTitle = win.querySelector('.titlebar-title')
 
 	// Display order; anything else registered is appended
-	const ORDER = ['sudoku', 'cliff-walking', 'spam', 'heart', 'pos-tagger', 'grammar', 'sentiment', 'summarizer', 'calculator', 'hangman', 'pokemon', 'nike']
+	const ORDER = ['sudoku', 'cliff-walking', 'spam', 'heart', 'pos-tagger', 'grammar', 'sentiment', 'summarizer', 'ngram', 'relation', 'calculator', 'hangman', 'pokemon', 'nike']
 
 	let current = null
 	let cleanup = null
