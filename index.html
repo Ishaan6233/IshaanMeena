@@ -213,6 +213,23 @@
                             <div class="contact-card"></div>
                         </div>
 
+
+                        <!-- Widgets app (widgets.js): gallery for adding desktop widgets -->
+                        <div class="app-window widgets-app" id="widgets-window" data-app="widgets" data-title="Widgets" data-sheet role="region" aria-label="Widgets" hidden>
+                            <div class="titlebar">
+                                <div class="traffic-lights" role="group" aria-label="Window controls">
+                                    <button type="button" class="light light-close" data-action="close" data-glyph="×" aria-label="Close window" title="Close"></button>
+                                    <button type="button" class="light light-min" data-action="minimize" data-glyph="−" aria-label="Minimize window" title="Minimize"></button>
+                                    <button type="button" class="light light-zoom" data-action="maximize" data-glyph="+" aria-label="Zoom window" title="Zoom"></button>
+                                </div>
+                                <span class="titlebar-title">Widgets</span>
+                            </div>
+                            <div class="wg-body">
+                                <p class="wg-intro">Add widgets to the desktop. Drag a widget to move it, drag its bottom-right corner to resize it, and press ⊖ to remove it. Your layout is saved in this browser.</p>
+                                <ul class="wg-list"></ul>
+                                <p class="wg-footer"><button type="button" class="demo-btn" data-wg-reset>Reset to default layout</button></p>
+                            </div>
+                        </div>
                         <!-- Mail app (mail.js): sends a message straight to Ishaan's inbox -->
                         <div class="app-window mail-app" id="mail-window" data-app="mail" data-title="Mail" data-sheet role="region" aria-label="Mail" hidden>
                             <div class="titlebar">
@@ -311,6 +328,10 @@
                                 <span class="dock-icon icon-resume" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V8h4.5L13 3.5ZM7 11v1.6h10V11H7Zm0 3.2v1.6h10v-1.6H7Zm0 3.2V19h7v-1.6H7Z"/></svg></span>
                                 <span class="dock-tip">Résumé</span>
                             </button>
+                            <button type="button" class="dock-item" data-app="widgets" aria-label="Widgets">
+                                <span class="dock-icon icon-widgets" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2" opacity=".75"/><rect x="3" y="13" width="8" height="8" rx="2" opacity=".75"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></span>
+                                <span class="dock-tip">Widgets</span>
+                            </button>
                             <span class="dock-divider" aria-hidden="true"></span>
                             <button type="button" class="dock-item" data-app="settings" aria-label="Settings">
                                 <span class="dock-icon icon-settings" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10.3 2h3.4l.5 2.6a8 8 0 0 1 1.9 1.1l2.5-.9 1.7 2.9-2 1.8a8 8 0 0 1 0 2.2l2 1.8-1.7 2.9-2.5-.9a8 8 0 0 1-1.9 1.1l-.5 2.6h-3.4l-.5-2.6a8 8 0 0 1-1.9-1.1l-2.5.9-1.7-2.9 2-1.8a8 8 0 0 1 0-2.2l-2-1.8 1.7-2.9 2.5.9a8 8 0 0 1 1.9-1.1l.5-2.6ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg></span>
@@ -369,5 +390,6 @@
     <script src="demos/ngram.js"></script>
     <script src="demos/relation.js"></script>
     <script src="demos/demos.js"></script>
+    <script src="widgets.js"></script>
 </body>
 </html>

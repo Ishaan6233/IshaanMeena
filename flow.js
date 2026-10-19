@@ -224,7 +224,7 @@
 	// Where the translucent panels (profile card, dock) sit, relative to the hero
 	function measurePanels() {
 		const h = hero.getBoundingClientRect()
-		panels = Array.from(document.querySelectorAll('#hero .widget, #hero .dock'))
+		panels = Array.from(document.querySelectorAll('#hero .dw:not([hidden]), #hero .widget:not([hidden]), #hero .dock'))
 			.map(el => el.getBoundingClientRect())
 			.filter(r => r.width && r.height)
 			.map(r => ({ x: r.left - h.left, y: r.top - h.top, w: r.width, h: r.height }))
@@ -621,6 +621,12 @@
 		clearTimeout(timer)
 		timer = setTimeout(resize, 100)
 	}).observe(hero)
+
+	// Widgets moved, resized, added or removed: re-measure where to dim the river
+	document.addEventListener('widgets:changed', () => {
+		measurePanels()
+		if (!running) draw(performance.now())
+	})
 
 	new MutationObserver(() => {
 		if (!running) draw(performance.now())

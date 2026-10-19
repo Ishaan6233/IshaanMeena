@@ -5056,3 +5056,504 @@ body.window-covering{
 		border-radius: 0;
 	}
 }
+
+/* =====================================================================
+   Desktop widgets (widgets.js)
+   ===================================================================== */
+.dw[hidden]{
+	display: none !important;
+}
+
+.desktop .dw{
+	position: absolute;
+	z-index: 5; /* above the wallpaper, below app windows */
+	box-sizing: border-box;
+	touch-action: none;
+	user-select: none;
+	cursor: grab;
+}
+
+.desktop .dw:not(.widget){
+	top: calc(var(--menubarH) + 4%);
+	left: 3.5%;
+	padding: 14px;
+	background-color: var(--glass);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid var(--glassBorder);
+	border-radius: 18px;
+	box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.35);
+	color: var(--mainText);
+	font-family: var(--sysFont);
+}
+
+.desktop .dw[data-size="s"]{ width: 13%; }
+.desktop .dw[data-size="m"]{ width: 19%; }
+.desktop .dw[data-size="l"]{ width: 24%; }
+
+.desktop .dw.dragging{
+	cursor: grabbing;
+	box-shadow: 0 24px 50px -14px rgba(0, 0, 0, 0.55);
+}
+
+.dw.dw-new{
+	animation: dw-pop 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes dw-pop{
+	from{ opacity: 0; transform: scale(0.85); }
+}
+
+/* Profile widget at each size */
+.widget.dw[data-size="s"] .widget-stats,
+.widget.dw[data-size="s"] .widget-section,
+.widget.dw[data-size="s"] .widget-actions,
+.widget.dw[data-size="s"] .widget-sub,
+.widget.dw[data-size="m"] .widget-section{
+	display: none;
+}
+
+.widget.dw[data-size="s"] .widget-head img{
+	width: 56px;
+	height: 56px;
+}
+
+.widget.dw[data-size="s"] .widget-name{
+	font-size: 13px;
+}
+
+.widget.dw[data-size="s"] .widget-role{
+	font-size: 10px;
+}
+
+/* Widget content */
+.dw-body{
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.dw .dw-label{
+	margin: 0;
+	color: var(--secondaryText);
+	font: 600 10.5px var(--sysFont);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.dw .dw-body strong{
+	color: var(--mainText);
+	font: 700 14px var(--sysFont);
+}
+
+.dw .dw-sub{
+	display: block;
+	color: var(--secondaryText);
+	font: 11.5px var(--sysFont);
+}
+
+.dw .dw-text{
+	margin: 0;
+	color: var(--mainText);
+	font: 12px/1.45 var(--sysFont);
+	opacity: 0.85;
+}
+
+.dw-row{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.dw-big-icon{
+	font-size: 26px;
+}
+
+.dw-link{
+	color: inherit;
+	text-decoration: none;
+}
+
+.dw .dw-btn{
+	align-self: flex-start;
+	padding: 5px 12px;
+	background-color: var(--linkColor);
+	border: none;
+	border-radius: 7px;
+	color: #fff;
+	font: 600 12px var(--sysFont);
+	cursor: pointer;
+}
+
+.dw-img{
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	background: #fff;
+	border-radius: 10px;
+	pointer-events: none;
+}
+
+.dw-clock-s{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.dw .dw-clock-s strong{
+	font-size: 26px;
+	font-weight: 300;
+	font-variant-numeric: tabular-nums;
+}
+
+.dw-clock-s span,
+.dw-clock-m span{
+	color: var(--secondaryText);
+	font: 12px var(--sysFont);
+}
+
+.dw-clock-m{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.dw .dw-clock-m strong{
+	display: block;
+	font-size: 22px;
+	font-weight: 300;
+}
+
+.dw-dial{
+	flex: none;
+	width: 72px;
+	height: 72px;
+}
+
+.dw-dial .face{ fill: color-mix(in srgb, var(--mainText) 8%, transparent); stroke: var(--glassBorder); }
+.dw-dial .tick{ stroke: var(--secondaryText); stroke-width: 1.6; }
+.dw-dial .hour{ stroke: var(--mainText); stroke-width: 3.5; stroke-linecap: round; }
+.dw-dial .min{ stroke: var(--mainText); stroke-width: 2; stroke-linecap: round; }
+.dw-dial .pin{ fill: #ff9f0a; }
+
+.dw-skill{
+	display: flex;
+	flex-direction: column;
+}
+
+.dw-skill b{
+	color: var(--mainText);
+	font: 700 12px var(--sysFont);
+}
+
+.dw-skill span{
+	color: var(--secondaryText);
+	font: 11.5px/1.4 var(--sysFont);
+}
+
+.dw-job + .dw-job{
+	margin-top: 4px;
+	padding-top: 6px;
+	border-top: 1px solid var(--glassBorder);
+}
+
+.dw-list{
+	margin: 0;
+	padding-left: 16px;
+	list-style: disc;
+	font: 12px var(--sysFont);
+}
+
+.dw-list a{
+	color: var(--linkColor);
+}
+
+/* ---------- Widgets app (gallery) ---------- */
+.app-window.widgets-app{
+	top: calc(var(--menubarH) + 5%);
+	left: 26%;
+	width: 50%;
+	height: auto;
+	max-height: calc(100% - var(--menubarH) - 100px);
+	background-color: var(--secondaryColor);
+}
+
+.widgets-app .titlebar{
+	background: color-mix(in srgb, var(--mainColor) 70%, var(--secondaryColor));
+	border-bottom: 1px solid var(--borderColor);
+}
+
+.widgets-app .titlebar-title{
+	color: var(--mainText);
+}
+
+.wg-body{
+	overflow-y: auto;
+	padding: 14px 18px 18px;
+	font-family: var(--sysFont);
+}
+
+.widgets-app .wg-intro,
+.widgets-app .wg-footer{
+	margin: 0 0 12px;
+	color: var(--secondaryText);
+	font: 12.5px/1.5 var(--sysFont);
+}
+
+.widgets-app .wg-footer{
+	margin: 12px 0 0;
+}
+
+.wg-list{
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wg-item{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+	background-color: var(--mainColor);
+	border: 1px solid var(--borderColor);
+	border-radius: 12px;
+}
+
+.wg-icon{
+	display: grid;
+	place-items: center;
+	flex: none;
+	width: 38px;
+	height: 38px;
+	background-color: color-mix(in srgb, var(--linkColor) 16%, transparent);
+	border-radius: 10px;
+	font-size: 19px;
+}
+
+.wg-text{
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.wg-text strong{
+	color: var(--mainText);
+	font: 700 13.5px var(--sysFont);
+}
+
+.wg-text span{
+	color: var(--secondaryText);
+	font: 12px var(--sysFont);
+}
+
+.wg-add{
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+
+.icon-widgets{
+	background: linear-gradient(160deg, #5ac8fa, #5856d6);
+}
+
+@media screen and (max-width: 1000px){
+	.app-window.widgets-app{ left: 8%; width: 84%; }
+}
+
+/* Phones: widgets stack in the page flow; no dragging or resizing */
+@media screen and (max-width: 700px){
+	.desktop .dw{
+		position: static;
+		width: auto !important;
+		margin: 0 12px;
+		cursor: auto;
+		touch-action: auto;
+	}
+
+	.dw-grip{
+		display: none;
+	}
+
+	.desktop .app-window.widgets-app{
+		position: fixed;
+		inset: 0;
+		z-index: 2000 !important;
+		width: auto;
+		height: auto;
+		max-height: none;
+		margin: 0;
+		border-radius: 0;
+	}
+
+	.wg-item{
+		flex-wrap: wrap;
+	}
+}
+
+/* ---------- Widget remove button and resize corner ---------- */
+.desktop .dw-remove{
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	background-color: color-mix(in srgb, var(--secondaryColor) 85%, #888);
+	border: 1px solid var(--glassBorder);
+	border-radius: 50%;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+	color: var(--mainText);
+	font: 700 15px/1 var(--sysFont);
+	opacity: 0;
+	transform: scale(0.7);
+	transition: opacity 150ms, transform 150ms;
+	cursor: pointer;
+}
+
+.desktop .dw-remove:hover{
+	background-color: #e5393b;
+	color: #fff;
+}
+
+.dw:hover > .dw-remove,
+.dw:focus-within > .dw-remove{
+	opacity: 1;
+	transform: none;
+}
+
+/* The corner: a soft diagonal handle that grows on hover */
+.dw-grip{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+	display: grid;
+	place-items: end;
+	width: 26px;
+	height: 26px;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 0 0 18px 0;
+	opacity: 0;
+	cursor: nwse-resize;
+	transition: opacity 150ms, background-color 150ms;
+}
+
+.dw-grip svg{
+	width: 12px;
+	height: 12px;
+	fill: none;
+	stroke: var(--mainText);
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	opacity: 0.7;
+}
+
+.dw:hover > .dw-grip,
+.dw.resizing > .dw-grip{
+	opacity: 1;
+}
+
+.dw-grip:hover,
+.dw.resizing > .dw-grip{
+	background: radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--linkColor) 45%, transparent), transparent 70%);
+}
+
+/* While resizing: an outline, and a badge naming the size it will snap to */
+.desktop .dw.resizing{
+	outline: 2px solid color-mix(in srgb, var(--linkColor) 70%, transparent);
+	outline-offset: 3px;
+	transition: none;
+}
+
+.dw-size-badge{
+	position: absolute;
+	right: 10px;
+	bottom: -30px;
+	z-index: 3;
+	padding: 3px 10px;
+	background-color: var(--linkColor);
+	border-radius: 999px;
+	color: #fff;
+	font: 600 11.5px var(--sysFont);
+	opacity: 0;
+	transform: translateY(-4px);
+	pointer-events: none;
+	transition: opacity 150ms, transform 150ms;
+}
+
+.dw.resizing > .dw-size-badge{
+	opacity: 1;
+	transform: none;
+}
+
+/* Release: glide to the snapped width */
+.desktop .dw.dw-snapping{
+	transition: width 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dw.dw-leaving{
+	opacity: 0;
+	transform: scale(0.85);
+	transition: opacity 180ms, transform 180ms;
+}
+
+@media screen and (max-width: 700px){
+	.dw-remove,
+	.dw-grip,
+	.dw-size-badge{
+		display: none !important;
+	}
+}
+
+.dw-job .dw-text{
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+/* Alignment guides and blocked-drop feedback while dragging widgets */
+.dw-guide{
+	position: absolute;
+	z-index: 6;
+	pointer-events: none;
+}
+
+.dw-guide[hidden]{
+	display: none;
+}
+
+.dw-guide.v{
+	width: 0;
+	border-left: 1px dashed color-mix(in srgb, var(--linkColor) 80%, transparent);
+}
+
+.dw-guide.h{
+	height: 0;
+	border-top: 1px dashed color-mix(in srgb, var(--linkColor) 80%, transparent);
+}
+
+.desktop .dw.dw-blocked{
+	outline: 2px solid rgba(229, 57, 59, 0.7);
+	outline-offset: 3px;
+}
+
+.wg-item.is-placed{
+	border-color: color-mix(in srgb, #2ea043 45%, var(--borderColor));
+}
+
+.widgets-app .wg-status{
+	color: #2ea043;
+	font: 600 12px var(--sysFont);
+	white-space: nowrap;
+}
