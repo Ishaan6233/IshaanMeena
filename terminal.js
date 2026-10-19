@@ -116,14 +116,6 @@
 				setTimeout(() => window.driveMode.start(), 50)
 			},
 		},
-		race: {
-			desc: 'race the AI around a circuit (+ parking)',
-			run() {
-				if (!window.raceMode) return error('race: not available')
-				print(`${accent('🏁 race mode')}: 2 laps against the AI, then try parking in the infield. Esc to exit.`)
-				setTimeout(() => window.raceMode.start(), 50)
-			},
-		},
 		play: {
 			desc: 'play a game (hangman, pokemon)',
 			run(args) {

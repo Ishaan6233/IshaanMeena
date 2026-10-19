@@ -2,13 +2,6 @@
 //   Toggle: the 🏎 button in the menu bar, or `drive` in the Terminal. Esc exits.
 //   Controls: arrow keys / WASD, or the on-screen joystick on touch screens (push the way you want to go).
 //   Hold still on a target until the ring fills (DWELL_MS).
-//
-// Scenes (race.js) can plug in with driveMode.setScene(scene):
-//   scene.locked          → true to freeze the car (e.g. during the countdown)
-//   scene.grip(x, y)      → 0..1 multiplier on top speed (e.g. slower off the track)
-//   scene.frame(dt, now, car) → called every frame; may move the car ({x, y, angle, speed})
-//   scene.allowClick(el)  → which elements the car may click while the scene is on
-//   scene.exit()          → called when game mode stops
 (function () {
 	const DWELL_MS = 1500
 	const CLICKABLE = 'button, a[href], [role="button"], [role="radio"], [role="option"], [role="menuitem"], .dock-item, .finder-item, .theme-swatch, .t-cmd, .demo-chip, summary, input[type="checkbox"], input[type="radio"], select'
@@ -25,7 +18,6 @@
 	const state = { x: 0, y: 0, angle: -Math.PI / 2, speed: 0 }
 	const keys = new Set()
 	let joy = null // { dx, dy } in -1..1 while the joystick is held
-	let scene = null
 	let raf = 0
 	let last = 0
 	let target = null
@@ -62,7 +54,7 @@
 		window.addEventListener('resize', sizeMarks)
 	}
 
-	// Shared with race.js for the AI car
+	// The car sprite
 	function carSvg(cls, dark, light) {
 		const id = 'grad-' + cls
 		return `<svg class="${cls}" width="26" height="44" viewBox="0 0 26 44" aria-hidden="true">
@@ -131,7 +123,6 @@
 		const under = document.elementFromPoint(x, y)
 		const el = under && under.closest(CLICKABLE)
 		let usable = el && !el.disabled && el.getClientRects().length && !el.closest('.drive-layer') ? el : null
-		if (usable && scene && !(scene.allowClick && scene.allowClick(usable))) usable = null
 		if (usable !== lastClicked) lastClicked = null // left the element it just clicked
 		setTarget(usable && usable !== lastClicked ? usable : null)
 
@@ -161,36 +152,28 @@
 		if (!active) return
 		const dt = Math.min(0.05, (now - last) / 1000)
 		last = now
-		const locked = scene && scene.locked
 
 		// Input → throttle (-1..1) and steer (-1..1), from the keyboard or the joystick
-		let throttle = 0
-		let steer = 0
-		if (!locked) {
-			const up = keys.has('ArrowUp') || keys.has('w')
-			const down = keys.has('ArrowDown') || keys.has('s')
-			throttle = up ? 1 : down ? -1 : 0
-			steer = (keys.has('ArrowRight') || keys.has('d') ? 1 : 0) - (keys.has('ArrowLeft') || keys.has('a') ? 1 : 0)
-			if (joy) {
-				const m = Math.min(1, Math.hypot(joy.dx, joy.dy))
-				if (m > 0.18) {
-					// Point-to-go: turn toward the joystick's direction, speed up with how far it's pushed
-					const diff = wrapAngle(Math.atan2(joy.dy, joy.dx) - state.angle)
-					steer = Math.max(-1, Math.min(1, diff * 2.2))
-					throttle = Math.abs(diff) > 2.6 ? -0.6 : m * (1 - 0.35 * Math.min(1, Math.abs(diff)))
-				}
+		const up = keys.has('ArrowUp') || keys.has('w')
+		const down = keys.has('ArrowDown') || keys.has('s')
+		let throttle = up ? 1 : down ? -1 : 0
+		let steer = (keys.has('ArrowRight') || keys.has('d') ? 1 : 0) - (keys.has('ArrowLeft') || keys.has('a') ? 1 : 0)
+		if (joy) {
+			const m = Math.min(1, Math.hypot(joy.dx, joy.dy))
+			if (m > 0.18) {
+				// Point-to-go: turn toward the joystick's direction, speed up with how far it's pushed
+				const diff = wrapAngle(Math.atan2(joy.dy, joy.dx) - state.angle)
+				steer = Math.max(-1, Math.min(1, diff * 2.2))
+				throttle = Math.abs(diff) > 2.6 ? -0.6 : m * (1 - 0.35 * Math.min(1, Math.abs(diff)))
 			}
 		}
 
-		// Physics: accelerate, brake/reverse, coast; top speed depends on the surface (scenes)
+		// Physics: accelerate, brake/reverse, coast to a stop
 		let { x, y, angle, speed } = state
-		const top = MAX_SPEED * (scene && scene.grip ? scene.grip(x, y) : 1)
-		if (locked) speed = 0
-		else if (throttle > 0) speed += ACCEL * throttle * dt
+		if (throttle > 0) speed += ACCEL * throttle * dt
 		else if (throttle < 0) speed -= (speed > 0 ? BRAKE : ACCEL * 0.6) * -throttle * dt
 		else speed -= Math.sign(speed) * Math.min(Math.abs(speed), FRICTION * dt)
-		if (speed > top) speed = Math.max(top, speed - BRAKE * dt) // e.g. bogged down on grass
-		speed = Math.max(-MAX_SPEED * 0.45, speed)
+		speed = Math.max(-MAX_SPEED * 0.45, Math.min(MAX_SPEED, speed))
 		angle += steer * TURN * dt * Math.max(-1, Math.min(1, speed / 180))
 
 		const nx = x + Math.cos(angle) * speed * dt
@@ -201,8 +184,6 @@
 		if (ny < 14 || ny > innerHeight - 14) speed *= -0.35
 		else y = ny
 		Object.assign(state, { x, y, angle, speed })
-
-		if (scene && scene.frame) scene.frame(dt, now, state)
 
 		// Tyre marks when turning hard at speed; the whole layer slowly fades
 		mctx.globalCompositeOperation = 'destination-out'
@@ -268,11 +249,9 @@
 			if (document.activeElement && document.activeElement !== document.body) document.activeElement.blur()
 			last = performance.now()
 			raf = requestAnimationFrame(step)
-			if (!scene) {
-				showToast(coarse.matches
-					? '🏎 Game mode · drag the <b>joystick</b> to drive · park on a button to click · tap 🏎 to exit'
-					: '🏎 Game mode · <b>arrows / WASD</b> to drive · park on a button to click · <b>Esc</b> to exit')
-			}
+			showToast(coarse.matches
+				? '🏎 Game mode · drag the <b>joystick</b> to drive · park on a button to click · tap 🏎 to exit'
+				: '🏎 Game mode · <b>arrows / WASD</b> to drive · park on a button to click · <b>Esc</b> to exit')
 		}
 		// Start near the middle of the visible page (or at a given point), pointing up
 		place({
@@ -299,15 +278,12 @@
 		layer.hidden = true
 		mctx.clearRect(0, 0, marks.width, marks.height)
 		document.documentElement.classList.remove('driving')
-		const s = scene
-		scene = null
-		if (s && s.exit) s.exit()
 		syncButton()
 	}
 
 	function syncButton() {
 		const b = document.getElementById('drive-toggle')
-		if (b) b.setAttribute('aria-pressed', active && !scene)
+		if (b) b.setAttribute('aria-pressed', active)
 	}
 
 	window.addEventListener('keydown', onKeyDown, true)
@@ -320,14 +296,7 @@
 	window.driveMode = {
 		start,
 		stop,
-		place,
 		toggle: () => (active ? stop() : start()),
-		setScene(s) { scene = s; syncButton() },
-		clearScene() { scene = null; syncButton() },
-		showToast: (html, ms) => { if (!layer) build(); showToast(html, ms) },
-		carSvg,
 		get active() { return active },
-		get car() { return state },
-		get layer() { if (!layer) build(); return layer },
 	}
 })()
